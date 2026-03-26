@@ -1,905 +1,480 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>RED गोलगप्पा अड्डा</title>
+<!-- saved from url=(0036)https://saurabhsharma1122.github.io/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saurabh Sharma — AI &amp; Full Stack Developer</title>
+<meta name="description" content="AI &amp; Full Stack Developer. Building intelligent systems, ML models and web applications.">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./Saurabh Sharma — AI &amp; Full Stack Developer_files/css2" rel="stylesheet">
 <style>
-* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-body { font-family:'Segoe UI',sans-serif; background:#0f0000; color:#f0f0f0; min-height:100vh; overflow-x:hidden; }
-
-/* NAV */
-.nav { background:#0f0000; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; border-bottom:2px solid #e53935; }
-.nav-logo { font-size:18px; font-weight:800; color:#fff; letter-spacing:0.3px; line-height:1.2; cursor:pointer; }
-.nav-logo span { color:#e53935; display:block; font-size:12px; font-weight:500; letter-spacing:1px; text-transform:uppercase; }
-.nav-right { display:flex; gap:10px; }
-.nav-btn { background:rgba(229,57,53,0.12); border:1px solid rgba(229,57,53,0.4); color:#e53935; padding:7px 14px; border-radius:50px; font-size:13px; cursor:pointer; font-weight:600; transition:background 0.2s; }
-.nav-btn:hover { background:rgba(229,57,53,0.25); }
-
-/* PAGES */
-.page { display:none; }
-.page.active { display:block; min-height:100vh; }
-
-/* ── HERO ── */
-.hero {
-  position:relative; overflow:hidden;
-  background:#0a0000;
-  border-bottom:3px solid #e53935;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{--t:.5s cubic-bezier(.4,0,.2,1)}
+body{font-family:'DM Sans',sans-serif;background:#f8f7f4;color:#1a1a1a;font-size:16px;line-height:1.6;overflow-x:hidden;transition:background var(--t),color var(--t)}
+body.dark{background:#080a0f;color:#e8edf5}
+.go{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0}
+.go.run{animation:grun .7s steps(1) forwards}
+@keyframes grun{0%{opacity:0}8%{opacity:.18;background:#0f0;clip-path:inset(20% 0 55% 0)}16%{opacity:.1;background:#f0f;clip-path:inset(55% 0 8% 0)}24%{opacity:.22;background:#0ff;clip-path:inset(8% 0 75% 0)}32%{opacity:.08;background:#0f0;clip-path:inset(72% 0 3% 0)}40%{opacity:.2;background:#f00;clip-path:inset(35% 0 38% 0)}48%{opacity:.06;background:#0f0;clip-path:inset(12% 0 65% 0)}56%{opacity:.14;background:#f0f;clip-path:inset(62% 0 12% 0)}64%{opacity:.05;background:#0ff}72%{opacity:.11;background:#0f0;clip-path:inset(42% 0 28% 0)}80%{opacity:.04;background:#f0f}100%{opacity:0}}
+.scanlines{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.1) 2px,rgba(0,0,0,.1) 4px);transition:opacity var(--t)}
+body.dark .scanlines{opacity:1}
+.gridbg{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0;background-image:linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px);background-size:50px 50px;transition:opacity var(--t)}
+body.dark .gridbg{opacity:1}
+.orb{position:fixed;border-radius:50%;filter:blur(100px);pointer-events:none;z-index:0;opacity:0;transition:opacity 1s ease}
+.orb1{width:500px;height:500px;background:rgba(201,168,76,.12);top:-100px;right:-100px}
+.orb2{width:400px;height:400px;background:rgba(30,60,120,.18);bottom:20%;left:-100px}
+body.dark .orb{opacity:1}
+.cur,.curR{display:none;position:fixed;pointer-events:none;z-index:9000;border-radius:50%;transition:transform .15s ease}
+body.dark .cur{display:block;width:7px;height:7px;background:#c9a84c;mix-blend-mode:screen}
+.tbtn{position:fixed;top:1.15rem;right:2rem;z-index:200;display:flex;align-items:center;gap:.45rem;padding:.45rem 1rem;border-radius:2px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;cursor:pointer;border:1.5px solid #1a1a1a;background:transparent;color:#1a1a1a;transition:all .3s}
+body.dark .tbtn{border-color:#c9a84c;color:#c9a84c;background:rgba(201,168,76,.06);box-shadow:0 0 14px rgba(201,168,76,.12)}
+.tbtn:hover{transform:scale(1.04)}
+.tdot{width:6px;height:6px;border-radius:50%;background:#1a1a1a;flex-shrink:0;transition:all .3s}
+body.dark .tdot{background:#c9a84c;box-shadow:0 0 8px #c9a84c;animation:dp 1.5s ease infinite}
+@keyframes dp{0%,100%{box-shadow:0 0 5px #c9a84c}50%{box-shadow:0 0 14px #c9a84c}}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.15rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:all .35s;border-bottom:1px solid transparent}
+nav.sc{background:rgba(248,247,244,.93);border-bottom-color:#e8e5df;backdrop-filter:blur(12px)}
+body.dark nav.sc{background:rgba(8,10,15,.9);border-bottom-color:#1e2530}
+.nlogo{font-family:'Playfair Display',serif;font-size:1.1rem;color:inherit;text-decoration:none}
+.ng{transition:color .3s}
+body.dark .ng{color:#c9a84c}
+.nlinks{display:flex;gap:2rem;list-style:none;margin-right:8rem}
+.nlinks a{color:#888;text-decoration:none;font-size:13px;font-family:'DM Mono',monospace;letter-spacing:.04em;transition:color .2s}
+.nlinks a:hover{color:#1a1a1a}
+body.dark .nlinks a{color:#7a8599}
+body.dark .nlinks a:hover{color:#c9a84c}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 2.5rem 4rem;max-width:1100px;margin:0 auto;position:relative;z-index:2}
+.htag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;color:#aaa;text-transform:uppercase;margin-bottom:2rem;display:flex;align-items:center;gap:.7rem;transition:color .3s}
+body.dark .htag{color:#c9a84c}
+.htag::before{content:'';width:24px;height:1px;background:currentColor}
+.hname{font-family:'Playfair Display',serif;font-size:clamp(3.5rem,9vw,7.5rem);font-weight:900;line-height:.95;letter-spacing:-.03em;margin-bottom:.6rem;color:#1a1a1a;transition:color .3s}
+body.dark .hname{color:#e8edf5}
+.hname .acc{color:#ccc;transition:color .3s}
+body.dark .hname .acc{color:#c9a84c}
+.hrole{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.1rem,2.5vw,1.6rem);color:#999;margin-bottom:2rem;transition:color .3s}
+body.dark .hrole{color:#7a8599}
+.hdesc{font-size:16px;color:#666;max-width:500px;line-height:1.85;margin-bottom:3rem;transition:color .3s}
+body.dark .hdesc{color:#7a8599}
+.hdesc em{color:#1a1a1a;font-style:normal;font-weight:500;transition:color .3s}
+body.dark .hdesc em{color:#e8edf5}
+.hcta{display:flex;gap:1rem;flex-wrap:wrap}
+.bp{display:inline-flex;align-items:center;gap:.5rem;background:#1a1a1a;color:#f8f7f4;text-decoration:none;font-weight:500;font-size:14px;padding:.8rem 1.8rem;border-radius:2px;letter-spacing:.02em;transition:all .25s}
+body.dark .bp{background:#c9a84c;color:#000}
+.bp:hover{opacity:.85;transform:translateY(-2px)}
+.bs{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:#777;text-decoration:none;font-size:14px;padding:.8rem 1.8rem;border-radius:2px;border:1px solid #ccc;letter-spacing:.02em;transition:all .25s}
+body.dark .bs{color:#7a8599;border-color:#2a3340}
+.bs:hover{border-color:#1a1a1a;color:#1a1a1a}
+body.dark .bs:hover{border-color:#c9a84c;color:#c9a84c}
+.div{height:1px;background:#e8e5df;position:relative;z-index:2;transition:background .3s}
+body.dark .div{background:linear-gradient(90deg,transparent,#1e2530,transparent)}
+.si{max-width:1100px;margin:0 auto;padding:5rem 2.5rem;position:relative;z-index:2}
+.slabel{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;color:#aaa;text-transform:uppercase;margin-bottom:.75rem;transition:color .3s}
+body.dark .slabel{color:#c9a84c}
+.stitle{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:3rem;color:#1a1a1a;transition:color .3s}
+body.dark .stitle{color:#e8edf5}
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.atext p{font-size:15px;color:#666;line-height:1.9;margin-bottom:1.25rem;transition:color .3s}
+body.dark .atext p{color:#7a8599}
+.atext strong{color:#1a1a1a;font-weight:500;transition:color .3s}
+body.dark .atext strong{color:#e8edf5}
+.atext em{color:#888;font-style:italic;transition:color .3s}
+body.dark .atext em{color:#c9a84c}
+.di{display:flex;gap:1rem;padding:1rem 1.2rem;margin-bottom:.7rem;background:#fff;border:1px solid #e8e5df;border-radius:3px;transition:all .3s;align-items:flex-start}
+body.dark .di{background:#0f1218;border-color:#1e2530}
+body.dark .di:hover{border-color:#6b5520}
+.dico{width:20px;height:20px;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center}
+.dico svg{width:16px;height:16px;stroke:#aaa;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s}
+body.dark .dico svg{stroke:#c9a84c}
+.dlabel{font-size:10px;font-family:'DM Mono',monospace;color:#bbb;letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px;transition:color .3s}
+body.dark .dlabel{color:#3a4555}
+.dval{font-size:13px;color:#333;transition:color .3s}
+body.dark .dval{color:#e8edf5}
+.dval a{color:#888;text-decoration:none;transition:color .2s}
+body.dark .dval a{color:#c9a84c}
+.dval a:hover{text-decoration:underline}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
+.sc{padding:1.4rem 1.6rem;background:#fff;border:1px solid #e8e5df;border-radius:3px;transition:all .25s;position:relative;overflow:hidden}
+.sc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:#1a1a1a;opacity:0;transition:opacity .25s}
+body.dark .sc{background:#0f1218;border-color:#1e2530}
+body.dark .sc::before{background:linear-gradient(90deg,#c9a84c,transparent)}
+.sc:hover{transform:translateY(-3px);border-color:#bbb}
+body.dark .sc:hover{border-color:#6b5520}
+.sc:hover::before{opacity:1}
+.sico{width:28px;height:28px;margin-bottom:.75rem;display:flex;align-items:center;justify-content:center}
+.sico svg{width:22px;height:22px;stroke:#555;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s}
+body.dark .sico svg{stroke:#c9a84c}
+.sname{font-size:14px;font-weight:500;color:#1a1a1a;margin-bottom:.25rem;transition:color .3s}
+body.dark .sname{color:#e8edf5}
+.slev{font-size:11px;font-family:'DM Mono',monospace;color:#aaa;transition:color .3s}
+body.dark .slev{color:#7a8599}
+.pgrid{display:grid;gap:1.25rem}
+.pc{background:#fff;border:1px solid #e8e5df;border-radius:3px;padding:2rem;display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:start;transition:all .25s;position:relative;overflow:hidden}
+.pc.feat{grid-template-columns:1fr}
+body.dark .pc{background:#0f1218;border-color:#1e2530}
+body.dark .pc::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,.03),transparent);opacity:0;transition:opacity .25s;pointer-events:none}
+.pc:hover{transform:translateY(-2px);border-color:#ccc;box-shadow:0 8px 30px rgba(0,0,0,.07)}
+body.dark .pc:hover{border-color:#6b5520;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+body.dark .pc:hover::after{opacity:1}
+.ptop{display:flex;align-items:center;gap:.7rem;margin-bottom:.85rem;flex-wrap:wrap}
+.pnum{font-family:'DM Mono',monospace;font-size:11px;color:#bbb;transition:color .3s}
+body.dark .pnum{color:#c9a84c}
+.badge{font-size:10px;font-family:'DM Mono',monospace;padding:2px 8px;border-radius:2px;letter-spacing:.06em;text-transform:uppercase;border:1px solid}
+.bl{color:#16a34a;background:rgba(22,163,74,.07);border-color:rgba(22,163,74,.2)}
+.bai{color:#7c3aed;background:rgba(124,58,237,.07);border-color:rgba(124,58,237,.2)}
+.br{color:#b45309;background:rgba(180,83,9,.07);border-color:rgba(180,83,9,.2)}
+.bw{color:#1d4ed8;background:rgba(29,78,216,.07);border-color:rgba(29,78,216,.2)}
+.bf{color:#555;background:#f0ede8;border-color:#ddd}
+body.dark .bl{color:#4ade80;background:rgba(74,222,128,.1);border-color:rgba(74,222,128,.2)}
+body.dark .bai{color:#a78bfa;background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.2)}
+body.dark .br{color:#c9a84c;background:rgba(201,168,76,.1);border-color:#6b5520}
+body.dark .bw{color:#60a5fa;background:rgba(96,165,250,.1);border-color:rgba(96,165,250,.2)}
+body.dark .bf{color:#e8edf5;background:rgba(255,255,255,.04);border-color:#2a3340}
+.ptitle{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#1a1a1a;margin-bottom:.55rem;letter-spacing:-.01em;transition:color .3s}
+body.dark .ptitle{color:#e8edf5}
+.pdesc{font-size:14px;color:#666;line-height:1.75;margin-bottom:1.1rem;transition:color .3s}
+body.dark .pdesc{color:#7a8599}
+.ptech{display:flex;gap:.4rem;flex-wrap:wrap}
+.tt{font-size:11px;font-family:'DM Mono',monospace;color:#888;background:#f0ede8;border:1px solid #e0ddd8;padding:2px 8px;border-radius:2px;letter-spacing:.04em;transition:all .3s}
+body.dark .tt{color:#3a4555;background:#141820;border-color:#1e2530}
+.plinks{display:flex;flex-direction:column;gap:.4rem}
+.pl{display:inline-flex;align-items:center;gap:.4rem;font-size:12px;font-family:'DM Mono',monospace;color:#888;text-decoration:none;padding:.4rem .75rem;border:1px solid #e0ddd8;border-radius:2px;white-space:nowrap;transition:all .2s;position:relative;z-index:5}
+.pl svg{width:11px;height:11px;pointer-events:none}
+.pl:hover{color:#1a1a1a;border-color:#1a1a1a}
+body.dark .pl{color:#7a8599;border-color:#1e2530}
+body.dark .pl:hover{color:#c9a84c;border-color:#c9a84c}
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:.4rem .8rem;margin-bottom:1.1rem}
+.feat-item{font-size:12px;color:#666;display:flex;gap:.4rem;align-items:flex-start;transition:color .3s}
+body.dark .feat-item{color:#7a8599}
+.feat-dot{color:#c9a84c;flex-shrink:0}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.ctext p{font-size:15px;color:#666;line-height:1.85;margin-bottom:1.25rem;transition:color .3s}
+body.dark .ctext p{color:#7a8599}
+.cl{display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;margin-bottom:.6rem;background:#fff;border:1px solid #e8e5df;border-radius:3px;text-decoration:none;color:#333;transition:all .2s;position:relative;z-index:5}
+body.dark .cl{background:#0f1218;border-color:#1e2530;color:#e8edf5}
+.cl:hover{border-color:#1a1a1a;transform:translateX(4px)}
+body.dark .cl:hover{border-color:#c9a84c;color:#c9a84c}
+.clico{width:20px;height:20px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.clico svg{width:16px;height:16px;stroke:#aaa;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s;pointer-events:none}
+body.dark .clico svg{stroke:#c9a84c}
+.cllabel{font-size:10px;font-family:'DM Mono',monospace;color:#bbb;letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:2px;transition:color .3s}
+body.dark .cllabel{color:#3a4555}
+.clval{font-size:13px}
+footer{border-top:1px solid #e8e5df;padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2;transition:border-color .3s}
+body.dark footer{border-top-color:#1e2530}
+.fl{font-family:'DM Mono',monospace;font-size:12px;color:#bbb;transition:color .3s}
+body.dark .fl{color:#3a4555}
+body.dark .fl span{color:#c9a84c}
+.fr{font-family:'DM Mono',monospace;font-size:11px;color:#ccc;transition:color .3s}
+body.dark .fr{color:#3a4555}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+body.dark ::-webkit-scrollbar{width:3px}
+body.dark ::-webkit-scrollbar-track{background:#080a0f}
+body.dark ::-webkit-scrollbar-thumb{background:#2a3340}
+@media(max-width:768px){
+  nav{padding:1rem 1.25rem}
+  .nlinks{display:none;margin-right:0}
+  .hero{padding:7rem 1.25rem 3rem}
+  .si{padding:3.5rem 1.25rem}
+  .agrid,.cgrid{grid-template-columns:1fr;gap:2rem}
+  .pc{grid-template-columns:1fr}
+  .feat-grid{grid-template-columns:1fr}
+  footer{padding:1.25rem;flex-direction:column;gap:.5rem;text-align:center}
+  .tbtn{top:1rem;right:1.25rem}
+  .cur,.curR{display:none!important}
 }
-.hero-bg-img {
-  position:absolute; inset:0;
-  background-image:url('https://images.unsplash.com/photo-1613894153291-0a4b6d92cc51?w=900&q=80');
-  background-size:cover; background-position:center top;
-  filter:brightness(0.18) saturate(1.6);
-  z-index:0;
-}
-.hero-content {
-  position:relative; z-index:1;
-  padding:38px 24px 44px;
-  text-align:center;
-}
-.hero-badge {
-  display:inline-flex; align-items:center; gap:6px;
-  background:rgba(229,57,53,0.15); border:1px solid rgba(229,57,53,0.4);
-  color:#e53935; font-size:11px; font-weight:700; letter-spacing:1.5px;
-  text-transform:uppercase; padding:5px 14px; border-radius:99px;
-  margin-bottom:18px;
-}
-.hero h1 {
-  font-size:34px; font-weight:900; color:#fff; line-height:1.15;
-  margin-bottom:10px; letter-spacing:-0.5px;
-}
-.hero h1 span { color:#f5c800; }
-.hero-sub { font-size:14px; color:rgba(255,255,255,0.55); line-height:1.65; margin-bottom:28px; }
-
-/* GAME TEASER CARD */
-.game-teaser {
-  background:linear-gradient(135deg,#1a0000 0%,#0d0000 100%);
-  border:1.5px solid #e53935;
-  border-radius:20px;
-  padding:20px 18px 22px;
-  margin:0 0 26px 0;
-  position:relative; overflow:hidden;
-}
-.game-teaser::before {
-  content:'';
-  position:absolute; top:-30px; right:-30px;
-  width:120px; height:120px;
-  background:radial-gradient(circle, rgba(229,57,53,0.18) 0%, transparent 70%);
-  pointer-events:none;
-}
-.game-teaser-top { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
-.game-teaser-icon {
-  font-size:38px; width:58px; height:58px; border-radius:14px;
-  background:rgba(229,57,53,0.12); border:1px solid rgba(229,57,53,0.3);
-  display:flex; align-items:center; justify-content:center; flex-shrink:0;
-}
-.game-teaser-title { font-size:18px; font-weight:800; color:#fff; margin-bottom:3px; }
-.game-teaser-sub { font-size:12px; color:rgba(255,255,255,0.45); line-height:1.5; }
-.prize-pill {
-  display:inline-flex; align-items:center; gap:6px;
-  background:#e53935; color:#fff; border-radius:99px;
-  padding:7px 16px; font-size:13px; font-weight:800;
-  margin-bottom:14px; width:100%; justify-content:center;
-}
-.how-to { display:flex; gap:8px; justify-content:center; margin-bottom:16px; }
-.how-step {
-  flex:1; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);
-  border-radius:10px; padding:10px 6px; text-align:center;
-}
-.how-step-num { font-size:16px; margin-bottom:4px; }
-.how-step-txt { font-size:10px; color:rgba(255,255,255,0.5); line-height:1.4; }
-.btn-play-big {
-  width:100%; background:linear-gradient(135deg,#e53935,#b71c1c);
-  color:#fff; border:none; padding:15px; border-radius:14px;
-  font-size:16px; font-weight:900; cursor:pointer; letter-spacing:0.3px;
-  box-shadow:0 4px 20px rgba(229,57,53,0.4);
-  transition:transform 0.15s, box-shadow 0.15s;
-}
-.btn-play-big:active { transform:scale(0.97); box-shadow:0 2px 10px rgba(229,57,53,0.2); }
-
-.hero-btns { display:flex; gap:10px; justify-content:center; }
-.btn-primary { background:#e53935; color:#fff; border:none; padding:13px 26px; border-radius:50px; font-size:14px; font-weight:800; cursor:pointer; transition:background 0.2s; }
-.btn-primary:hover { background:#ef5350; }
-.btn-outline { background:transparent; color:#e53935; border:2px solid #e53935; padding:13px 26px; border-radius:50px; font-size:14px; font-weight:700; cursor:pointer; transition:background 0.2s; }
-.btn-outline:hover { background:rgba(229,57,53,0.1); }
-
-/* TICKER */
-.ticker-wrap {
-  background:#e53935; overflow:hidden; white-space:nowrap;
-  padding:9px 0; border-bottom:2px solid #c62828;
-}
-.ticker-inner {
-  display:inline-flex; gap:0;
-  animation:ticker 20s linear infinite;
-}
-.ticker-item {
-  display:inline-flex; align-items:center; gap:8px;
-  font-size:12px; font-weight:700; color:#fff;
-  padding:0 28px;
-}
-.ticker-dot { width:5px; height:5px; background:#fff; border-radius:50%; opacity:0.4; }
-@keyframes ticker { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
-
-/* CONTACT BAR */
-.contact-bar { background:#1a0000; border-top:1px solid rgba(229,57,53,0.15); border-bottom:1px solid rgba(229,57,53,0.15); padding:10px 20px; display:flex; align-items:center; justify-content:center; gap:8px; font-size:13px; color:rgba(255,255,255,0.5); }
-.contact-bar span { color:#e53935; font-weight:600; }
-
-/* SECTION TITLE */
-.section-title { padding:22px 20px 12px; font-size:12px; font-weight:800; color:#e53935; letter-spacing:2px; text-transform:uppercase; display:flex; align-items:center; gap:10px; }
-.section-title::after { content:''; flex:1; height:1px; background:rgba(229,57,53,0.2); }
-
-/* POPULAR GRID */
-.pop-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:0 16px 20px; }
-.pop-card {
-  position:relative; border:1px solid rgba(229,57,53,0.2);
-  border-radius:16px; overflow:hidden; height:150px; cursor:pointer;
-  transition:transform 0.2s, border-color 0.2s;
-}
-.pop-card:active { transform:scale(0.97); }
-.pop-card img { width:100%; height:100%; object-fit:cover; display:block; }
-.pop-card-overlay {
-  position:absolute; bottom:0; left:0; width:100%;
-  background:linear-gradient(to top, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
-  padding:22px 12px 10px;
-}
-.pop-card-name { font-size:13px; font-weight:700; color:#fff; margin-bottom:1px; }
-.pop-card-sub { font-size:10px; color:rgba(255,255,255,0.55); margin-bottom:3px; }
-.pop-card-price { font-size:13px; font-weight:800; color:#f5c800; }
-.new-badge {
-  position:absolute; top:8px; left:8px;
-  background:#e53935; color:#fff; font-size:9px; font-weight:800;
-  padding:3px 8px; border-radius:99px; letter-spacing:0.5px;
-  text-transform:uppercase; border:1px solid rgba(255,255,255,0.3);
-}
-.special-badge {
-  position:absolute; top:8px; right:8px;
-  background:#f5c800; color:#111; font-size:9px; font-weight:800;
-  padding:3px 8px; border-radius:99px; letter-spacing:0.5px;
-  text-transform:uppercase;
-}
-
-/* GAME PAGE */
-.game-page { background:#0a0000; min-height:100vh; display:none; flex-direction:column; align-items:center; }
-.game-page.active { display:flex; }
-#ui { width:100%; display:flex; justify-content:space-between; padding:14px 20px; }
-.ui-box { background:rgba(229,57,53,0.08); border:1px solid rgba(229,57,53,0.2); border-radius:12px; padding:8px 16px; color:#fff; font-size:14px; font-weight:500; }
-.ui-box span { color:#e53935; font-weight:700; }
-#lives { display:flex; gap:4px; align-items:center; }
-canvas { display:block; border-radius:16px; max-width:100%; }
-.progress-wrap { width:70%; margin:10px auto 0; }
-.progress-label { font-size:11px; color:rgba(255,255,255,0.4); text-align:center; margin-bottom:5px; }
-.progress-track { background:rgba(255,255,255,0.08); border-radius:99px; height:6px; overflow:hidden; }
-.progress-bar { height:100%; width:0%; background:#e53935; border-radius:99px; transition:width 0.3s; }
-.powered { color:rgba(255,255,255,0.2); font-size:11px; text-align:center; padding:14px 0 20px; }
-.powered span { color:rgba(229,57,53,0.5); font-weight:700; }
-
-/* LEADERBOARD */
-.lb-header { background:#1a0000; padding:20px; color:#fff; text-align:center; border-bottom:2px solid #e53935; }
-.lb-header h2 { font-size:22px; font-weight:700; }
-.lb-header p { font-size:13px; color:rgba(255,255,255,0.5); margin-top:4px; }
-.lb-list { padding:16px; }
-.lb-row { background:#1a1a1a; border:1px solid rgba(229,57,53,0.15); border-radius:12px; padding:14px 16px; margin-bottom:10px; display:flex; align-items:center; gap:14px; }
-.lb-rank { font-size:22px; min-width:36px; text-align:center; }
-.lb-name { font-size:15px; font-weight:600; flex:1; color:#f0f0f0; }
-.lb-score { font-size:16px; font-weight:700; color:#f5c800; }
-.lb-empty { text-align:center; color:rgba(255,255,255,0.3); font-size:14px; padding:40px 20px; }
-.lb-badge { font-size:10px; padding:2px 8px; border-radius:99px; background:rgba(229,57,53,0.15); color:#e53935; font-weight:600; margin-left:6px; border:1px solid rgba(229,57,53,0.3); }
-
-/* OVERLAYS */
-.overlay { position:fixed; inset:0; background:rgba(0,0,0,0.75); display:flex; align-items:center; justify-content:center; z-index:200; padding:20px; }
-.overlay.hidden { display:none; }
-.modal { background:#1a0a0a; border:1px solid rgba(229,57,53,0.2); border-radius:20px; padding:28px 24px; width:100%; max-width:340px; text-align:center; color:#f0f0f0; }
-.modal h2 { font-size:20px; font-weight:700; margin-bottom:8px; color:#fff; }
-.modal p { font-size:14px; color:rgba(255,255,255,0.55); margin-bottom:20px; line-height:1.5; }
-.modal input { width:100%; background:#111; border:1.5px solid rgba(229,57,53,0.2); border-radius:10px; padding:12px 16px; font-size:15px; outline:none; margin-bottom:14px; color:#fff; font-family:inherit; }
-.modal input:focus { border-color:#e53935; }
-.modal input::placeholder { color:rgba(255,255,255,0.3); }
-.modal-btn { width:100%; background:#e53935; color:#fff; border:none; border-radius:10px; padding:13px; font-size:15px; font-weight:800; cursor:pointer; margin-bottom:10px; font-family:inherit; transition:background 0.2s; }
-.modal-btn:hover { background:#ef5350; }
-.modal-btn.secondary { background:#222; color:#f0f0f0; border:1px solid rgba(255,255,255,0.1); }
-.modal-btn.secondary:hover { background:#2a2a2a; }
-.modal-btn.danger { background:#ff4d4f; color:#fff; }
-
-/* WIN MODAL */
-.win-modal { background:#0d0000; border:1px solid rgba(229,57,53,0.3); border-radius:20px; padding:32px 24px; width:100%; max-width:340px; text-align:center; color:#fff; }
-.win-modal h2 { font-size:24px; font-weight:700; margin-bottom:6px; }
-.win-modal p { font-size:14px; color:rgba(255,255,255,0.6); margin-bottom:20px; }
-
-/* VOUCHER */
-.voucher-card { background:#fff; border-radius:16px; padding:20px; text-align:center; position:relative; overflow:hidden; }
-.voucher-brand { font-size:11px; color:#888; margin-bottom:4px; text-transform:uppercase; letter-spacing:1px; }
-.voucher-pct { font-size:38px; font-weight:800; color:#e53935; line-height:1.1; margin:8px 0; }
-.voucher-off { font-size:14px; color:#333; font-weight:700; margin-bottom:16px; }
-.voucher-code-wrap { border-top:1px dashed #ddd; padding-top:14px; margin-bottom:12px; }
-.voucher-code-label { font-size:11px; color:#aaa; margin-bottom:6px; }
-.voucher-code { font-size:20px; font-weight:700; color:#111; letter-spacing:3px; background:#f5f5f5; padding:8px 16px; border-radius:8px; display:inline-block; }
-.voucher-footer { display:flex; justify-content:space-between; font-size:12px; color:#aaa; border-top:1px dashed #ddd; padding-top:12px; }
-.voucher-footer strong { color:#333; }
-.voucher-validity { margin-top:10px; font-size:10px; color:#ccc; }
-.voucher-disclaimer { margin-top:10px; background:#fff0f0; border-radius:8px; padding:8px 10px; font-size:11px; color:#c62828; line-height:1.5; }
-
-/* ADMIN */
-.admin-row { display:flex; align-items:center; justify-content:space-between; background:#1a1a1a; border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:12px 14px; margin-bottom:8px; }
-.admin-row .uname { font-size:14px; font-weight:600; color:#f0f0f0; }
-.admin-row .uscore { font-size:13px; color:rgba(255,255,255,0.4); }
-.admin-remove { background:#ff4d4f; color:#fff; border:none; border-radius:8px; padding:6px 14px; font-size:12px; font-weight:600; cursor:pointer; }
-
-/* DIFFICULTY SLIDER */
-.diff-section {
-  background:#0d1a0d; border:1px solid rgba(80,200,80,0.25);
-  border-radius:12px; padding:16px; margin-bottom:16px; text-align:left;
-}
-.diff-section h4 { font-size:13px; color:#7dff7d; margin-bottom:12px; }
-.diff-row { margin-bottom:12px; }
-.diff-label { font-size:12px; color:rgba(255,255,255,0.55); margin-bottom:6px; display:flex; justify-content:space-between; }
-.diff-label span { color:#f5c800; font-weight:700; }
-.diff-slider {
-  width:100%; -webkit-appearance:none; appearance:none;
-  height:6px; border-radius:99px; outline:none;
-  background:rgba(255,255,255,0.1); cursor:pointer;
-}
-.diff-slider::-webkit-slider-thumb {
-  -webkit-appearance:none; width:20px; height:20px;
-  border-radius:50%; background:#e53935; cursor:pointer;
-  border:2px solid #111;
-}
-.diff-preset-row { display:flex; gap:8px; margin-top:4px; }
-.diff-preset {
-  flex:1; padding:8px 4px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);
-  background:#111; color:rgba(255,255,255,0.6); font-size:11px; font-weight:600;
-  cursor:pointer; text-align:center; font-family:inherit; transition:all 0.2s;
-}
-.diff-preset:hover { border-color:#e53935; color:#e53935; }
-.diff-preset.active { background:rgba(229,57,53,0.15); border-color:#e53935; color:#e53935; }
-.flagged-section { margin-top:20px; padding:16px; background:#1a0800; border-radius:12px; border:1px solid rgba(229,57,53,0.2); }
-.flagged-section h4 { font-size:13px; color:#e53935; margin-bottom:10px; }
-
-button { font-family:inherit; }
 </style>
 </head>
 <body>
-
-<nav class="nav">
-  <div>
-    <div class="nav-logo" onclick="showPage('home')">🫙 RED गोलगप्पा अड्डा <span>Street Food · Nagpur</span></div>
-  </div>
-  <div class="nav-right">
-    <button class="nav-btn" onclick="showPage('leaderboard')">🏆</button>
-  </div>
+<div class="go" id="go"></div>
+<div class="scanlines"></div>
+<div class="gridbg"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="cur" id="cur" style="left: 1319.5px; top: 7.5px;"></div>
+<div class="curR" id="curR" style="left: 1309px; top: -3px;"></div>
+<button class="tbtn" onclick="toggle()">
+  <span class="tdot"></span>
+  <span id="tl">TRANSFORM</span>
+</button>
+<nav id="nav" class="sc">
+  <a href="https://saurabhsharma1122.github.io/#" class="nlogo">S<span class="ng">.</span>Sharma</a>
+  <ul class="nlinks">
+    <li><a href="https://saurabhsharma1122.github.io/#projects">Projects</a></li>
+    <li><a href="https://saurabhsharma1122.github.io/#skills">Skills</a></li>
+    <li><a href="https://saurabhsharma1122.github.io/#about">About</a></li>
+    <li><a href="https://saurabhsharma1122.github.io/#contact">Contact</a></li>
+    <li><a href="./Saurabh_Sharma_Resume.docx" download="Saurabh_Sharma_Resume.docx">Resume ↓</a></li>
+  </ul>
 </nav>
 
-<!-- ════════════ HOME ════════════ -->
-<div id="page-home" class="page active">
-
+<section style="position:relative;z-index:2">
   <div class="hero">
-    <div class="hero-bg-img"></div>
-    <div class="hero-content">
-      <div class="hero-badge">🫙 RED गोलगप्पा अड्डा</div>
-      <h1>Hungry? <span>Play &amp; Eat Free.</span></h1>
-      <p class="hero-sub">Score 500 points in our game while you wait<br>and win a <strong style="color:#f5c800;">FREE Dabeli!</strong></p>
+    <div class="htag">Available for opportunities</div>
+    <h1 class="hname">Saurabh<br><span class="acc">Sharma.</span></h1>
+    <p class="hrole">AI &amp; Full Stack Developer</p>
+    <p class="hdesc">I build <em>intelligent systems</em> that think, remember and act. From autonomous AI agents to machine learning models — I create software that <em>solves real problems.</em></p>
+    <div class="hcta">
+      <a href="https://saurabhsharma1122.github.io/#projects" class="bp">View My Work →</a>
+      <a href="https://saurabhsharma1122.github.io/#contact" class="bs">Get In Touch</a>
+      <a href="./Saurabh_Sharma_Resume.docx" download="Saurabh_Sharma_Resume.docx" class="bs" style="gap:.5rem"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> Resume</a>
+    </div>
+  </div>
+</section>
 
-      <div class="game-teaser">
-        <div class="game-teaser-top">
-          <div class="game-teaser-icon">🎮</div>
-          <div>
-            <div class="game-teaser-title">Golgappa Guard</div>
-            <div class="game-teaser-sub">Protect your plate from the birds.<br>Reach 500 pts → win free Dabeli!</div>
-          </div>
+<div class="div"></div>
+
+<section id="projects"><div class="si">
+  <div class="slabel rv vis" style="transition-delay: 0s;">Projects</div>
+  <h2 class="stitle rv vis" style="transition-delay: 0.1s;">Things I've built.</h2>
+  <div class="pgrid">
+
+    <!-- ═══════ 01 — MEGABOX ═══════ -->
+    <div class="pc feat rv vis" style="transition-delay: 0.2s;">
+      <div>
+        <div class="ptop"><span class="pnum">01</span><span class="badge bai">AI Agent</span><span class="badge bf">Featured</span></div>
+        <div class="ptitle">MegaBox — Autonomous AI Mind</div>
+        <div class="pdesc">Not a chatbot. MegaBox is a fully local autonomous AI with a real-time emotional state, camera-based vision, face recognition, voice interaction, and a live neural dashboard. It thinks, observes, remembers, and forms genuine opinions. Routes between Llama3, Qwen2.5-Coder and LLaVA:7b depending on context. Knows who it's talking to via face recognition, reacts when you disappear from camera, and speaks with emotion-matched animations. Zero cloud dependency — everything runs on your machine.</div>
+        <div class="slabel" style="margin:1rem 0 .6rem">Key Features</div>
+        <div class="feat-grid">
+          <div class="feat-item"><span class="feat-dot">◈</span>Emotional self-state (mood, energy, curiosity, focus)</div>
+          <div class="feat-item"><span class="feat-dot">◈</span>LLaVA:7b vision — reacts intelligently to what it sees</div>
+          <div class="feat-item"><span class="feat-dot">◈</span>Face recognition — knows who is in frame</div>
+          <div class="feat-item"><span class="feat-dot">◈</span>Emotion-aware character animations on dashboard</div>
+          <div class="feat-item"><span class="feat-dot">◈</span>Voice I/O with smart name recognition</div>
+          <div class="feat-item"><span class="feat-dot">◈</span>Internal thinking system with self-reflection</div>
+          <div class="feat-item"><span class="feat-dot">◈</span>Identity defense — reacts when called a chatbot</div>
+          <div class="feat-item"><span class="feat-dot">◈</span>Real-time neural interface dashboard</div>
         </div>
-        <div class="prize-pill">🏆 Win a FREE Dabeli!</div>
-        <div class="how-to">
-          <div class="how-step"><div class="how-step-num">👆</div><div class="how-step-txt">Move your finger</div></div>
-          <div class="how-step"><div class="how-step-num">🛡️</div><div class="how-step-txt">Block the birds</div></div>
-          <div class="how-step"><div class="how-step-num">🫙</div><div class="how-step-txt">Score 500, eat free</div></div>
+        <div class="ptech">
+          <span class="tt">Python</span><span class="tt">Ollama</span><span class="tt">Llama3</span><span class="tt">LLaVA:7b</span><span class="tt">Qwen2.5-Coder</span><span class="tt">OpenCV</span><span class="tt">Face Recognition</span><span class="tt">Flask</span><span class="tt">pyttsx3</span><span class="tt">SpeechRecognition</span><span class="tt">Tkinter</span><span class="tt">Local LLM</span>
         </div>
-        <button class="btn-play-big" onclick="askUsername()">🎮 Play Now — It's Free!</button>
       </div>
+      <div style="margin-top:1.2rem">
+        <a href="https://github.com/saurabhsharma1122/megabox-ai-assistant" target="_blank" class="pl">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"></path></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
 
-      <div class="hero-btns">
-        <button class="btn-outline" onclick="showPage('leaderboard')">🏆 Leaderboard</button>
+    <!-- ═══════ 02 — MOMENTUM ═══════ -->
+    <div class="pc feat rv vis" style="transition-delay: 0.3s;">
+      <div>
+        <div class="ptop"><span class="pnum">02</span><span class="badge bl">Live</span><span class="badge bw">Full Stack</span><span class="badge bf">SaaS</span></div>
+        <div class="ptitle">Momentum — Daily Life Tracker</div>
+        <div class="pdesc">A fully functional SaaS productivity app built from scratch — habits, focus timer, journal, mood tracking and goals in one offline-ready web app. Includes a complete subscription system with UPI paywall, email OTP verification, Firebase authentication, real-time Firestore sync across devices and a freemium model that locks premium features after a 7-day trial. Deployed on Vercel and installable as a PWA on mobile.</div>
+        <div class="slabel" style="margin:1rem 0 .6rem">What I built</div>
+        <div class="feat-grid">
+          <div class="feat-item"><span class="feat-dot">◈</span>Email OTP signup with EmailJS — real verification flow</div>
+          <div class="feat-item"><span class="feat-dot">◈</span>Firebase Auth + Firestore — user data synced across devices</div>
+          <div class="feat-item"><span class="feat-dot">◈</span>UPI paywall with Google Form payment verification</div>
+          <div class="feat-item"><span class="feat-dot">◈</span>Freemium model — trial, soft locks, loss-fear psychology</div>
+          <div class="feat-item"><span class="feat-dot">◈</span>Habits tracker, Pomodoro timer, mood &amp; sleep logging</div>
+          <div class="feat-item"><span class="feat-dot">◈</span>90-day heatmap, streak counter, daily score ring</div>
+          <div class="feat-item"><span class="feat-dot">◈</span>Offline-first with IndexedDB persistence</div>
+          <div class="feat-item"><span class="feat-dot">◈</span>Auto subscription expiry — isPaid flag in Firestore</div>
+        </div>
+        <div class="ptech">
+          <span class="tt">HTML</span><span class="tt">CSS</span><span class="tt">JavaScript</span><span class="tt">Firebase Auth</span><span class="tt">Firestore</span><span class="tt">EmailJS</span><span class="tt">Vercel</span><span class="tt">PWA</span><span class="tt">UPI Payments</span>
+        </div>
+      </div>
+      <div style="margin-top:1.2rem;display:flex;flex-direction:column;gap:.4rem">
+        <a href="https://momentum-tawny-nine.vercel.app/" target="_blank" class="pl">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          Live Demo
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══════ 03 — BRIEFGEN ═══════ -->
+    <div class="pc rv vis" style="transition-delay: 0s;">
+      <div>
+        <div class="ptop"><span class="pnum">03</span><span class="badge bl">Live</span><span class="badge bai">AI Tool</span></div>
+        <div class="ptitle">BriefGen</div>
+        <div class="pdesc">AI-powered client brief generator for freelancers. Describe your role, AI builds a custom intake form with smart relevant fields. Client opens it in any browser, fills it out, and downloads a clean PDF brief — no login, no server, works completely offline.</div>
+        <div class="ptech"><span class="tt">AI</span><span class="tt">HTML</span><span class="tt">Vercel</span><span class="tt">PDF Export</span><span class="tt">Offline-First</span></div>
+      </div>
+      <div class="plinks">
+        <a href="https://briefgen-pi.vercel.app/" target="_blank" class="pl">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          Live Site
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══════ 04 — BUREAUCRACY GPS ═══════ -->
+    <div class="pc rv vis" style="transition-delay: 0.1s;">
+      <div>
+        <div class="ptop"><span class="pnum">04</span><span class="badge bl">Live</span><span class="badge bai">AI Powered</span></div>
+        <div class="ptitle">Bureaucracy GPS</div>
+        <div class="pdesc">Free AI web app generating step-by-step government process guides in plain language. Hindi &amp; English support, official links, WhatsApp sharing. Built and deployed in one day.</div>
+        <div class="ptech"><span class="tt">React</span><span class="tt">OpenRouter AI</span><span class="tt">Vercel</span><span class="tt">Hindi/English</span></div>
+      </div>
+      <div class="plinks">
+        <a href="https://bureaucracygps.vercel.app/" target="_blank" class="pl">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          Live Site
+        </a>
+        <a href="https://github.com/saurabhsharma1122/bureaucracy-gps" target="_blank" class="pl">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"></path></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══════ 05 — DIABETES ═══════ -->
+    <div class="pc rv vis" style="transition-delay: 0.2s;">
+      <div>
+        <div class="ptop"><span class="pnum">05</span><span class="badge br">Research</span><span class="badge bai">ML</span></div>
+        <div class="ptitle">Early Diabetes Detection</div>
+        <div class="pdesc">ML research project on early-stage diabetes prediction using multiple algorithms. Improved accuracy through data preprocessing, feature engineering and algorithm comparison.</div>
+        <div class="ptech"><span class="tt">Python</span><span class="tt">Machine Learning</span><span class="tt">Data Processing</span><span class="tt">Research</span></div>
+      </div>
+      <div class="plinks">
+        <a href="https://github.com/saurabhsharma1122/diabetes-ml-research" target="_blank" class="pl">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"></path></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══════ 06 — FRESHMART ═══════ -->
+    <div class="pc rv vis" style="transition-delay: 0.3s;">
+      <div>
+        <div class="ptop"><span class="pnum">06</span><span class="badge bw">Web</span></div>
+        <div class="ptitle">FreshMart</div>
+        <div class="pdesc">Frontend web project demonstrating product layout design, UI structure and responsive interface concepts.</div>
+        <div class="ptech"><span class="tt">HTML</span><span class="tt">CSS</span><span class="tt">Frontend</span></div>
+      </div>
+      <div class="plinks">
+        <a href="https://github.com/saurabhsharma1122/freshmart" target="_blank" class="pl">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"></path></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div></section>
+
+<div class="div"></div>
+
+<section id="skills"><div class="si">
+  <div class="slabel rv vis" style="transition-delay: 0s;">Skills</div>
+  <h2 class="stitle rv vis" style="transition-delay: 0.1s;">What I work with.</h2>
+  <div class="sgrid">
+    <div class="sc rv vis" style="transition-delay: 0.2s;"><div class="sico"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg></div><div class="sname">Python</div><div class="slev">AI Systems · Automation · ML Pipelines</div></div>
+    <div class="sc rv vis" style="transition-delay: 0.3s;"><div class="sico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"></path></svg></div><div class="sname">Machine Learning</div><div class="slev">Model Training · Data Processing · Research</div></div>
+    <div class="sc rv vis" style="transition-delay: 0s;"><div class="sico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4l3 3"></path></svg></div><div class="sname">React</div><div class="slev">Frontend · Hooks · API Integration</div></div>
+    <div class="sc rv vis" style="transition-delay: 0.1s;"><div class="sico"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm0-14a6 6 0 1 0 6 6 6 6 0 0 0-6-6zm0 10a4 4 0 1 1 4-4 4 4 0 0 1-4 4z"></path></svg></div><div class="sname">AI Systems</div><div class="slev">LLMs · Agents · Local Models · Ollama</div></div>
+    <div class="sc rv vis" style="transition-delay: 0.2s;"><div class="sico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><path d="M8 21h8M12 17v4"></path></svg></div><div class="sname">Web Development</div><div class="slev">HTML · CSS · Responsive Design</div></div>
+    <div class="sc rv vis" style="transition-delay: 0.3s;"><div class="sico"><svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg></div><div class="sname">Automation</div><div class="slev">Task Automation · System Control · Scripting</div></div>
+  </div>
+</div></section>
+
+<div class="div"></div>
+
+<section id="about"><div class="si">
+  <div class="slabel rv vis" style="transition-delay: 0s;">About</div>
+  <h2 class="stitle rv vis" style="transition-delay: 0.1s;">The person<br>behind the code.</h2>
+  <div class="agrid">
+    <div class="atext rv vis" style="transition-delay: 0.2s;">
+      <p>I'm a <strong>B.Tech AI &amp; Data Science student</strong> at Priyadarshini College of Engineering — building things that go far beyond college assignments.</p>
+      <p>My work spans <strong>autonomous AI agents</strong>, machine learning research, and full-stack web applications. I'm drawn to problems that haven't been solved well yet — and I build until they are.</p>
+      <p><em>"Every time I ship something, I feel like I've discovered a new version of myself — and it pushes me to go even bigger."</em></p>
+    </div>
+    <div class="rv vis" style="transition-delay: 0.3s;">
+      <div class="di">
+        <div class="dico"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg></div>
+        <div><div class="dlabel">Education</div><div class="dval">AI &amp; Data Science, B.Tech<br>Priyadarshini College of Engineering</div></div>
+      </div>
+      <div class="di">
+        <div class="dico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+        <div><div class="dlabel">Location</div><div class="dval">Nagpur, Maharashtra, India</div></div>
+      </div>
+      <div class="di">
+        <div class="dico"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+        <div><div class="dlabel">Open to</div><div class="dval">Internships · Freelance · Collaborations</div></div>
+      </div>
+      <div class="di">
+        <div class="dico"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></div>
+        <div><div class="dlabel">GitHub</div><div class="dval"><a href="https://github.com/saurabhsharma1122" target="_blank">github.com/saurabhsharma1122</a></div></div>
       </div>
     </div>
   </div>
+</div></section>
 
-  <!-- TICKER -->
-  <div class="ticker-wrap">
-    <div class="ticker-inner" id="tickerInner"></div>
-  </div>
+<div class="div"></div>
 
-
-  <div style="text-align:center;padding:10px 20px 30px;">
-    <button class="btn-primary" style="padding:14px 40px;" onclick="askUsername()">🎮 Play Golgappa Guard &amp; Win Free Dabeli</button>
-    <div style="font-size:11px;color:rgba(255,255,255,0.2);margin-top:10px;">Powered by <a href="https://saurabhsharma1122.github.io/" target="_blank" style="color:rgba(229,57,53,0.5);font-weight:700;text-decoration:none;">Web with Saurabh</a></div>
-  </div>
-</div>
-
-<!-- ════════════ GAME ════════════ -->
-<div id="page-game" class="page game-page">
-  <div id="ui">
-    <div class="ui-box">Score <span id="scoreDisplay">0</span></div>
-    <div class="ui-box" id="lives"></div>
-  </div>
-  <canvas id="c" width="575" height="575"></canvas>
-  <div class="progress-wrap">
-    <div class="progress-label">Goal: 500 points</div>
-    <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
-  </div>
-  <div class="powered">Powered by <a href="https://saurabhsharma1122.github.io/" target="_blank" style="color:rgba(229,57,53,0.5);font-weight:700;text-decoration:none;">Web with Saurabh</a></div>
-</div>
-
-<!-- ════════════ LEADERBOARD ════════════ -->
-<div id="page-leaderboard" class="page">
-  <div class="lb-header">
-    <h2>🏆 Leaderboard</h2>
-    <p>Top players at RED गोलगप्पा अड्डा</p>
-  </div>
-  <div class="lb-list" id="lbList"><div class="lb-empty">No scores yet. Be the first to play!</div></div>
-  <div style="text-align:center;padding:10px 20px 30px;">
-    <div style="font-size:11px;color:rgba(255,255,255,0.2);margin-bottom:16px;">Powered by <a href="https://saurabhsharma1122.github.io/" target="_blank" style="color:rgba(229,57,53,0.5);font-weight:700;text-decoration:none;">Web with Saurabh</a></div>
-    <div id="adminTrigger" style="font-size:28px;cursor:pointer;user-select:none;" onclick="handleAdminTap()">🫙</div>
-    <div id="adminTapHint" style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px;opacity:0;transition:opacity 0.3s;"></div>
-  </div>
-</div>
-
-<!-- ══ OVERLAYS ══ -->
-
-<!-- Username -->
-<div class="overlay hidden" id="usernameOverlay">
-  <div class="modal">
-    <div style="font-size:40px;margin-bottom:10px;">🎮</div>
-    <h2>Enter Your Name</h2>
-    <p>Your name will appear on the leaderboard. Keep it clean and fun!</p>
-    <input type="text" id="usernameInput" placeholder="Your name..." maxlength="18" autocomplete="off">
-    <div id="usernameError" style="color:#ff4d4f;font-size:13px;margin:-8px 0 12px;display:none;"></div>
-    <button class="modal-btn" onclick="submitUsername()">Let's Play! 🚀</button>
-    <button class="modal-btn secondary" onclick="closeOverlay('usernameOverlay')">Cancel</button>
-  </div>
-</div>
-
-<!-- Win -->
-<div class="overlay hidden" id="winOverlay">
-  <div class="win-modal">
-    <div style="font-size:52px;margin-bottom:10px;">🏆</div>
-    <h2>You Won!</h2>
-    <p>Amazing! You hit 500 points. You've earned a <strong style="color:#f5c800;">FREE Dabeli!</strong></p>
-    <div style="background:rgba(229,57,53,0.12);border:1px solid rgba(229,57,53,0.35);border-radius:14px;padding:18px;margin-bottom:20px;">
-      <div style="font-size:30px;font-weight:800;color:#e53935;line-height:1;">FREE DABELI 🫓</div>
-      <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:6px;">with your order today</div>
+<section id="contact"><div class="si">
+  <div class="slabel rv" style="transition-delay: 0s;">Contact</div>
+  <h2 class="stitle rv" style="transition-delay: 0.1s;">Let's build<br>something together.</h2>
+  <div class="cgrid">
+    <div class="ctext rv" style="transition-delay: 0.2s;">
+      <p>I'm open to internships, freelance projects, research collaborations and anything interesting. If you have a problem worth solving — let's talk.</p>
+      <p>Based in Nagpur. Available remotely anywhere.</p>
     </div>
-    <button class="modal-btn" onclick="claimOffer()">🎁 Claim My Offer</button>
-    <button class="modal-btn secondary" onclick="closeOverlay('winOverlay');startGame()">Play Again</button>
-  </div>
-</div>
-
-<!-- Voucher -->
-<div class="overlay hidden" id="voucherOverlay">
-  <div class="win-modal">
-    <div style="font-size:44px;margin-bottom:10px;">🎉</div>
-    <h2 style="margin-bottom:4px;">Congratulations!</h2>
-    <p style="margin-bottom:18px;">Show this screen at the counter to redeem your free Dabeli.</p>
-    <div class="voucher-card">
-      <div class="voucher-brand">RED गोलगप्पा अड्डा — Discount Voucher</div>
-      <div class="voucher-pct">FREE</div>
-      <div class="voucher-off">Dabeli 🫓</div>
-      <div class="voucher-code-wrap">
-        <div class="voucher-code-label">Voucher Code</div>
-        <div id="voucherCode" class="voucher-code"></div>
-      </div>
-      <div class="voucher-footer">
-        <span>Player: <strong id="voucherName"></strong></span>
-        <span id="voucherDate" style="font-weight:600;color:#333;"></span>
-      </div>
-      <div class="voucher-validity">Valid today only · One time use</div>
-      <div class="voucher-disclaimer">📋 Screenshots are not valid. Only live on-screen display accepted at counter.</div>
+    <div class="rv" style="transition-delay: 0.3s;">
+      <a href="mailto:saurabhsharma.in.developer@gmail.com" class="cl"><div class="clico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div><div><span class="cllabel">Email</span><span class="clval">saurabhsharma.in.developer@gmail.com</span></div></a>
+      <a href="https://github.com/saurabhsharma1122" target="_blank" class="cl">
+        <div class="clico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"></path></svg></div>
+        <div><span class="cllabel">GitHub</span><span class="clval">github.com/saurabhsharma1122</span></div>
+      </a>
+      <a href="https://www.linkedin.com/in/saurabh-sharma-754294290" target="_blank" class="cl">
+        <div class="clico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg></div>
+        <div><span class="cllabel">LinkedIn</span><span class="clval">linkedin.com/in/saurabh-sharma-754294290</span></div>
+      </a>
     </div>
-    <button class="modal-btn secondary" style="margin-top:16px;" onclick="closeOverlay('voucherOverlay');showPage('home')">Done</button>
   </div>
-</div>
+</div></section>
 
-<!-- Already Claimed -->
-<div class="overlay hidden" id="alreadyClaimedOverlay">
-  <div class="modal">
-    <div style="font-size:40px;margin-bottom:10px;">🎟️</div>
-    <h2>Already Claimed!</h2>
-    <p>You've already claimed your voucher today. Show this code at the counter.</p>
-    <div style="background:#111;border:1px solid rgba(229,57,53,0.3);border-radius:10px;padding:12px;font-size:22px;font-weight:700;letter-spacing:3px;color:#e53935;margin-bottom:16px;" id="alreadyClaimedCode"></div>
-    <p style="font-size:12px;color:rgba(255,255,255,0.3);margin-bottom:16px;">One voucher per person per day.</p>
-    <button class="modal-btn secondary" onclick="closeOverlay('alreadyClaimedOverlay')">Got it</button>
-  </div>
-</div>
-
-<!-- Game Over -->
-<div class="overlay hidden" id="gameOverOverlay">
-  <div class="win-modal" style="border-color:rgba(255,77,79,0.4);">
-    <div style="font-size:56px;margin-bottom:10px;">💀</div>
-    <h2 style="color:#ff4d4f;">Game Over!</h2>
-    <p style="margin-bottom:10px;">Better luck next time! Keep playing to win a <strong style="color:#f5c800;">FREE Dabeli!</strong></p>
-    <div style="background:rgba(255,77,79,0.1);border:1px solid rgba(255,77,79,0.3);border-radius:14px;padding:16px;margin-bottom:22px;">
-      <div style="font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:4px;">Your Score</div>
-      <div id="gameOverScore" style="font-size:44px;font-weight:900;color:#ff4d4f;line-height:1;">0</div>
-      <div style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:4px;">Goal: 500 pts</div>
-    </div>
-    <button class="modal-btn" onclick="closeOverlay('gameOverOverlay');startGame()">🔄 Try Again</button>
-    <button class="modal-btn secondary" onclick="closeOverlay('gameOverOverlay');showPage('home')">🏠 Back to Home</button>
-  </div>
-</div>
-
-<!-- Admin Password -->
-<div class="overlay hidden" id="adminPassOverlay">
-  <div class="modal">
-    <div style="font-size:36px;margin-bottom:10px;">🔒</div>
-    <h2>Admin Access</h2>
-    <p>Enter the admin password to continue.</p>
-    <input type="password" id="adminPassInput" placeholder="Password..." autocomplete="off">
-    <div id="adminPassError" style="color:#ff4d4f;font-size:13px;margin:-8px 0 12px;display:none;">Wrong password.</div>
-    <button class="modal-btn" onclick="checkAdminPass()">Enter</button>
-    <button class="modal-btn secondary" onclick="closeOverlay('adminPassOverlay')">Cancel</button>
-  </div>
-</div>
-
-<!-- Admin Panel -->
-<div class="overlay hidden" id="adminOverlay">
-  <div class="modal" style="max-height:88vh;overflow-y:auto;">
-    <h2>🔐 Admin Panel</h2>
-    <p>Manage leaderboard &amp; game settings</p>
-    <div id="adminContent"></div>
-    <button class="modal-btn secondary" style="margin-top:14px;" onclick="closeOverlay('adminOverlay')">Close</button>
-  </div>
-</div>
+<footer>
+  <div class="fl">© 2025 <span>Saurabh Sharma</span>. All rights reserved.</div>
+  <div class="fr">AI &amp; Full Stack Developer</div>
+</footer>
 
 <script>
-// ─── SAFE TEXT HELPER ───
-function esc(str) {
-  return String(str)
-    .replace(/&/g,'&amp;')
-    .replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;')
-    .replace(/'/g,'&#39;');
+let dark = false
+function toggle() {
+  const go = document.getElementById('go')
+  go.classList.remove('run')
+  void go.offsetWidth
+  go.classList.add('run')
+  setTimeout(() => {
+    dark = !dark
+    document.body.classList.toggle('dark', dark)
+    document.getElementById('tl').textContent = dark ? 'SIMPLIFY' : 'TRANSFORM'
+    document.querySelectorAll('.rv').forEach(el => {
+      el.classList.remove('vis')
+      obs.observe(el)
+    })
+  }, 280)
 }
-
-// ─── TICKER ───
-(function(){
-  const items = [
-    '🫙 Golgappa / Pani Puri',
-    '🫓 Dabeli Special',
-    '🥘 Ragda Patties — New Arrival!',
-    '🎮 Score 500 pts → WIN Free Dabeli!',
-    '🍛 Pav Bhaji',
-    '🏆 Play Golgappa Guard Now!',
-    '🌶️ Khatta · Meetha · Teekha — Your choice!',
-  ];
-  const all = [...items, ...items];
-  const html = all.map(t => `<span class="ticker-item">${esc(t)}<span class="ticker-dot"></span></span>`).join('');
-  document.getElementById('tickerInner').innerHTML = html;
-})();
-
-// ─── PAGE ROUTING ───
-function showPage(name) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + name).classList.add('active');
-  window.scrollTo(0, 0);
-  if (name !== 'game') {
-    running = false;
-    cancelAnimationFrame(frameId);
-    clearInterval(spawnInterval);
-    clearInterval(diffInterval);
-  }
-  if (name === 'leaderboard') renderLeaderboard();
-  if (name === 'game') setTimeout(() => { resize(); startGame(); }, 50);
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('sc', scrollY > 50)
+})
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target) }
+  })
+}, { threshold: 0.08 })
+document.querySelectorAll('.rv').forEach((el, i) => {
+  el.style.transitionDelay = (i % 4) * .1 + 's'
+  obs.observe(el)
+})
+const cur = document.getElementById('cur')
+const curR = document.getElementById('curR')
+let mx = 0, my = 0, rx = 0, ry = 0
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY
+  if (cur) { cur.style.left = mx - 3.5 + 'px'; cur.style.top = my - 3.5 + 'px' }
+})
+function animCur() {
+  rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12
+  if (curR) { curR.style.left = rx - 18 + 'px'; curR.style.top = ry - 18 + 'px' }
+  requestAnimationFrame(animCur)
 }
-
-// ─── BAD WORDS FILTER ───
-const BAD_WORDS = ['fuck','shit','ass','bastard','bitch','dick','chutiya','madarchod','bhosdi','gaand','harami','randi','saala','mc','bc','lund','gandu'];
-function isBadName(n) {
-  const s = n.toLowerCase().replace(/\s/g,'');
-  return BAD_WORDS.some(w => s.includes(w));
-}
-
-// ─── STORAGE HELPERS ───
-function getLeaderboard() { try { return JSON.parse(localStorage.getItem('rga_lb') || '[]'); } catch { return []; } }
-function saveLeaderboard(lb) { localStorage.setItem('rga_lb', JSON.stringify(lb)); }
-function getFlagged() { try { return JSON.parse(localStorage.getItem('rga_flagged') || '[]'); } catch { return []; } }
-function saveFlagged(f) { localStorage.setItem('rga_flagged', JSON.stringify(f)); }
-
-// ─── DIFFICULTY SETTINGS ───
-const DIFF_DEFAULTS = { spawnRate: 1400, birdSpeed: 2.15 };
-function getDiffSettings() {
-  try { return JSON.parse(localStorage.getItem('rga_diff') || 'null') || {...DIFF_DEFAULTS}; }
-  catch { return {...DIFF_DEFAULTS}; }
-}
-function saveDiffSettings(s) { localStorage.setItem('rga_diff', JSON.stringify(s)); }
-
-let currentUser = localStorage.getItem('rga_username') || null;
-
-// ─── USERNAME FLOW ───
-function askUsername() {
-  if (currentUser) { showPage('game'); return; }
-  document.getElementById('usernameInput').value = '';
-  document.getElementById('usernameError').style.display = 'none';
-  document.getElementById('usernameOverlay').classList.remove('hidden');
-  setTimeout(() => document.getElementById('usernameInput').focus(), 100);
-}
-
-function submitUsername() {
-  const val = document.getElementById('usernameInput').value.trim();
-  const errEl = document.getElementById('usernameError');
-  if (!val || val.length < 2) {
-    errEl.textContent = 'Name must be at least 2 characters.';
-    errEl.style.display = 'block'; return;
-  }
-  if (isBadName(val)) {
-    const flagged = getFlagged();
-    flagged.push({ name: val, time: new Date().toLocaleString() });
-    saveFlagged(flagged);
-    errEl.textContent = 'Please choose a different name.';
-    errEl.style.display = 'block'; return;
-  }
-  currentUser = val;
-  localStorage.setItem('rga_username', val);
-  closeOverlay('usernameOverlay');
-  showPage('game');
-}
-
-function closeOverlay(id) { document.getElementById(id).classList.add('hidden'); }
-
-// ─── LEADERBOARD RENDER ───
-function renderLeaderboard() {
-  const lb = getLeaderboard().sort((a,b) => b.score - a.score).slice(0, 10);
-  const el = document.getElementById('lbList');
-  if (!lb.length) {
-    el.innerHTML = '<div class="lb-empty">No scores yet. Be the first to play!</div>';
-    return;
-  }
-  const medals = ['🥇','🥈','🥉'];
-  el.innerHTML = lb.map((e, i) => {
-    const isYou = e.name === currentUser;
-    const badge = isYou ? `<span class="lb-badge">You</span>` : '';
-    return `<div class="lb-row">
-      <div class="lb-rank">${medals[i] || (i + 1)}</div>
-      <div class="lb-name">${esc(e.name)}${badge}</div>
-      <div class="lb-score">${esc(String(e.score))} pts</div>
-    </div>`;
-  }).join('');
-}
-
-function saveScore(name, score) {
-  const lb = getLeaderboard();
-  const ex = lb.find(e => e.name === name);
-  if (ex) { if (score > ex.score) ex.score = score; }
-  else lb.push({ name, score });
-  saveLeaderboard(lb);
-}
-
-// ─── ADMIN TAP ───
-let adminTapCount = 0, adminTapTimer = null;
-function handleAdminTap() {
-  adminTapCount++;
-  clearTimeout(adminTapTimer);
-  const hint = document.getElementById('adminTapHint');
-  hint.style.opacity = '1';
-  hint.textContent = adminTapCount === 1 ? 'Tap 2 more times...' : adminTapCount === 2 ? 'One more...' : '';
-  adminTapTimer = setTimeout(() => { adminTapCount = 0; hint.style.opacity = '0'; }, 1500);
-  if (adminTapCount >= 3) {
-    adminTapCount = 0; hint.style.opacity = '0';
-    document.getElementById('adminPassOverlay').classList.remove('hidden');
-    document.getElementById('adminPassInput').value = '';
-    document.getElementById('adminPassError').style.display = 'none';
-  }
-}
-
-function checkAdminPass() {
-  if (document.getElementById('adminPassInput').value === '7788') {
-    closeOverlay('adminPassOverlay'); openAdmin();
-  } else {
-    document.getElementById('adminPassError').style.display = 'block';
-  }
-}
-
-function openAdmin() {
-  const lb = getLeaderboard().sort((a,b) => b.score - a.score);
-  const flagged = getFlagged();
-  const ds = getDiffSettings();
-  const spawnPct = Math.round(((2000 - ds.spawnRate) / (2000 - 600)) * 100);
-  const speedPct = Math.round(((ds.birdSpeed - 1.2) / (4.5 - 1.2)) * 100);
-  let html = '<div style="text-align:left;">';
-  html += `<div class="diff-section">
-    <h4>🎮 Game Difficulty</h4>
-    <div class="diff-row">
-      <div class="diff-label">Spawn Speed (birds/sec) <span id="spawnLabel">${esc(String(spawnPct))}%</span></div>
-      <input class="diff-slider" type="range" min="0" max="100" value="${esc(String(spawnPct))}" oninput="onSliderChange('spawn', this.value)" id="spawnSlider">
-    </div>
-    <div class="diff-row">
-      <div class="diff-label">Bird Speed <span id="speedLabel">${esc(String(speedPct))}%</span></div>
-      <input class="diff-slider" type="range" min="0" max="100" value="${esc(String(speedPct))}" oninput="onSliderChange('speed', this.value)" id="speedSlider">
-    </div>
-    <div class="diff-preset-row">
-      <button class="diff-preset" onclick="applyPreset('easy')">😊 Easy</button>
-      <button class="diff-preset" onclick="applyPreset('medium')">😐 Medium</button>
-      <button class="diff-preset" onclick="applyPreset('hard')">😤 Hard</button>
-      <button class="diff-preset" onclick="applyPreset('insane')">💀 Insane</button>
-    </div>
-  </div>`;
-  html += `<div style="background:#0d1a2e;border:1px solid #1d4ed8;border-radius:10px;padding:12px 14px;margin-bottom:16px;">
-    <div style="font-size:13px;font-weight:600;color:#60a5fa;margin-bottom:8px;">🧪 Test Tools</div>
-    <button class="modal-btn" style="background:#0d0000;color:#e53935;padding:10px;" onclick="closeOverlay('adminOverlay');showWin()">▶ Test Win Screen</button>
-  </div>`;
-  html += `<h4 style="font-size:14px;margin-bottom:10px;color:#f0f0f0;">All Players (${esc(String(lb.length))})</h4>`;
-  if (!lb.length) html += '<p style="color:rgba(255,255,255,0.3);font-size:13px;">No entries yet.</p>';
-  lb.forEach(e => {
-    html += `<div class="admin-row">
-      <div><div class="uname">${esc(e.name)}</div><div class="uscore">${esc(String(e.score))} pts</div></div>
-      <button class="admin-remove" onclick="adminRemove(${JSON.stringify(e.name)})">Remove</button>
-    </div>`;
-  });
-  if (flagged.length) {
-    html += `<div class="flagged-section"><h4>⚠️ Flagged Names (${esc(String(flagged.length))})</h4>`;
-    flagged.forEach(f => {
-      html += `<div style="font-size:13px;padding:4px 0;color:#e53935;">${esc(f.name)} <span style="color:rgba(255,255,255,0.3);font-size:11px;">— ${esc(f.time)}</span></div>`;
-    });
-    html += `<button class="modal-btn danger" style="margin-top:10px;padding:8px;" onclick="clearFlagged()">Clear Flagged List</button></div>`;
-  }
-  html += '</div>';
-  document.getElementById('adminContent').innerHTML = html;
-  document.getElementById('adminOverlay').classList.remove('hidden');
-}
-
-function onSliderChange(type, val) {
-  const v = parseInt(val);
-  const ds = getDiffSettings();
-  if (type === 'spawn') {
-    ds.spawnRate = Math.round(2000 - (v / 100) * (2000 - 600));
-    const el = document.getElementById('spawnLabel');
-    if (el) el.textContent = v + '%';
-  } else {
-    ds.birdSpeed = parseFloat((1.2 + (v / 100) * (4.5 - 1.2)).toFixed(2));
-    const el = document.getElementById('speedLabel');
-    if (el) el.textContent = v + '%';
-  }
-  saveDiffSettings(ds);
-}
-
-function applyPreset(preset) {
-  const presets = {
-    easy:   { spawnRate: 1900, birdSpeed: 1.5 },
-    medium: { spawnRate: 1400, birdSpeed: 2.15 },
-    hard:   { spawnRate: 900,  birdSpeed: 3.0 },
-    insane: { spawnRate: 620,  birdSpeed: 4.2 },
-  };
-  saveDiffSettings(presets[preset]);
-  openAdmin();
-}
-
-function adminRemove(name) {
-  if (!confirm('Remove "' + name + '" from leaderboard?')) return;
-  saveLeaderboard(getLeaderboard().filter(e => e.name !== name));
-  openAdmin();
-}
-function clearFlagged() { saveFlagged([]); openAdmin(); }
-
-// ─── CLAIM / VOUCHER ───
-function claimOffer() {
-  const claimKey = 'rga_claimed_' + currentUser;
-  const existing = localStorage.getItem(claimKey);
-  const today = new Date().toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric' });
-  if (existing) {
-    const data = JSON.parse(existing);
-    if (data.date === today) {
-      closeOverlay('winOverlay');
-      document.getElementById('alreadyClaimedCode').textContent = data.code;
-      document.getElementById('alreadyClaimedOverlay').classList.remove('hidden');
-      return;
-    }
-  }
-  const rand = Math.random().toString(36).substring(2, 6).toUpperCase();
-  const initials = currentUser.substring(0, 2).toUpperCase();
-  const dateShort = new Date().toLocaleDateString('en-IN',{ day:'2-digit', month:'2-digit' }).replace('/','');
-  const code = 'RGA' + dateShort + initials + rand;
-  localStorage.setItem(claimKey, JSON.stringify({ code, date: today }));
-  closeOverlay('winOverlay');
-  document.getElementById('voucherCode').textContent  = code;
-  document.getElementById('voucherName').textContent  = currentUser;
-  document.getElementById('voucherDate').textContent  = today;
-  document.getElementById('voucherOverlay').classList.remove('hidden');
-}
-
-function showWin() {
-  running = false;
-  clearInterval(spawnInterval); clearInterval(diffInterval); cancelAnimationFrame(frameId);
-  if (currentUser) saveScore(currentUser, score);
-  document.getElementById('winOverlay').classList.remove('hidden');
-}
-
-function showGameOver() {
-  running = false;
-  clearInterval(spawnInterval); clearInterval(diffInterval); cancelAnimationFrame(frameId);
-  if (currentUser) saveScore(currentUser, score);
-  document.getElementById('gameOverScore').textContent = score;
-  document.getElementById('gameOverOverlay').classList.remove('hidden');
-}
-
-// ════════════════════════════════
-//  GAME ENGINE
-// ════════════════════════════════
-const canvas = document.getElementById('c');
-const ctx = canvas.getContext('2d');
-let W, H, cx, cy, R;
-
-function resize() {
-  const size = Math.min(window.innerWidth, window.innerHeight - 120);
-  canvas.width = W = size;
-  canvas.height = H = size;
-  cx = W / 2; cy = H / 2; R = size * 0.09;
-}
-
-let shieldAngle = 0, score = 0, lives = 3;
-let birds = [], particles = [], running = false;
-let spawnInterval, diffInterval, frameId;
-let spawnRate, birdSpeed, currentShieldArc;
-const SHIELD_ARC_MAX = Math.PI * 0.275, SHIELD_ARC_MIN = Math.PI * 0.07;
-
-canvas.addEventListener('mousemove', e => {
-  const r = canvas.getBoundingClientRect();
-  shieldAngle = Math.atan2(e.clientY - r.top - cy, e.clientX - r.left - cx);
-});
-canvas.addEventListener('touchmove', e => {
-  e.preventDefault();
-  const r = canvas.getBoundingClientRect(), t = e.touches[0];
-  shieldAngle = Math.atan2(t.clientY - r.top - cy, t.clientX - r.left - cx);
-}, { passive: false });
-
-function spawnBird() {
-  const angle = Math.random() * Math.PI * 2;
-  const dist = Math.max(W, H) * 0.62;
-  birds.push({
-    x: cx + Math.cos(angle) * dist,
-    y: cy + Math.sin(angle) * dist,
-    angle, speed: birdSpeed + Math.random() * 0.8,
-    size: W * 0.032, wobble: Math.random() * Math.PI * 2
-  });
-}
-
-function spawnParticles(x, y, color, count = 10) {
-  for (let i = 0; i < count; i++) {
-    const a = Math.random() * Math.PI * 2, spd = 2 + Math.random() * 4;
-    particles.push({ x, y, vx: Math.cos(a)*spd, vy: Math.sin(a)*spd, alpha:1, color, r:3+Math.random()*4 });
-  }
-}
-
-function updateLives() {
-  document.getElementById('lives').innerHTML = [0,1,2]
-    .map(i => `<span style="opacity:${i < lives ? 1 : 0.2}">❤️</span>`)
-    .join('');
-}
-
-function startGame() {
-  score = 0; lives = 3; birds = []; particles = [];
-  currentShieldArc = SHIELD_ARC_MAX;
-  const ds = getDiffSettings();
-  spawnRate = ds.spawnRate;
-  birdSpeed = ds.birdSpeed;
-  document.getElementById('scoreDisplay').textContent = 0;
-  document.getElementById('progressBar').style.width = '0%';
-  updateLives(); running = true;
-  clearInterval(spawnInterval); clearInterval(diffInterval);
-  spawnInterval = setInterval(() => { if (running) spawnBird(); }, spawnRate);
-  diffInterval = setInterval(() => {
-    if (!running) return;
-    birdSpeed += 0.2;
-    if (spawnRate > 600) {
-      spawnRate -= 120;
-      clearInterval(spawnInterval);
-      spawnInterval = setInterval(() => { if (running) spawnBird(); }, spawnRate);
-    }
-  }, 4500);
-  cancelAnimationFrame(frameId);
-  loop();
-}
-
-function drawPlate() {
-  ctx.save(); ctx.shadowColor = 'rgba(0,0,0,0.4)'; ctx.shadowBlur = 20;
-  ctx.beginPath(); ctx.arc(cx, cy, R*1.1, 0, Math.PI*2);
-  ctx.fillStyle = '#1a0000'; ctx.fill(); ctx.restore();
-  ctx.beginPath(); ctx.arc(cx, cy, R*1.05, 0, Math.PI*2);
-  ctx.fillStyle = '#0d0000'; ctx.fill();
-  ctx.strokeStyle = '#e53935'; ctx.lineWidth = 2; ctx.stroke();
-  ctx.beginPath(); ctx.arc(cx, cy, R*0.82, 0, Math.PI*2);
-  ctx.strokeStyle = 'rgba(229,57,53,0.3)'; ctx.lineWidth = 1; ctx.stroke();
-  ctx.font = `${R * 0.95}px serif`;
-  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-  ctx.fillText('🫙', cx, cy + 2);
-}
-
-function drawShield() {
-  const r = R * 1.72;
-  const start = shieldAngle - currentShieldArc / 2;
-  const end   = shieldAngle + currentShieldArc / 2;
-  ctx.save(); ctx.shadowColor = '#e53935'; ctx.shadowBlur = 18;
-  ctx.beginPath(); ctx.arc(cx, cy, r, start, end);
-  ctx.strokeStyle = '#e53935'; ctx.lineWidth = W * 0.028; ctx.lineCap = 'round'; ctx.stroke();
-  ctx.restore();
-  ctx.beginPath(); ctx.arc(cx, cy, r, start, end);
-  ctx.strokeStyle = '#fff'; ctx.lineWidth = W * 0.014; ctx.lineCap = 'round'; ctx.stroke();
-}
-
-function angleDiff(a, b) {
-  let d = a - b;
-  while (d >  Math.PI) d -= Math.PI * 2;
-  while (d < -Math.PI) d += Math.PI * 2;
-  return Math.abs(d);
-}
-
-function loop() {
-  if (!running) return;
-  frameId = requestAnimationFrame(loop);
-  ctx.clearRect(0, 0, W, H);
-  const bg = ctx.createRadialGradient(cx, cy, 0, cx, cy, W * 0.7);
-  bg.addColorStop(0, '#1a0000'); bg.addColorStop(1, '#080000');
-  ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
-  ctx.beginPath(); ctx.arc(cx, cy, R * 1.72, 0, Math.PI * 2);
-  ctx.strokeStyle = 'rgba(229,57,53,0.08)'; ctx.lineWidth = 1; ctx.stroke();
-  drawPlate(); drawShield();
-
-  const SR = R * 1.72;
-  for (let i = birds.length - 1; i >= 0; i--) {
-    const b = birds[i];
-    const dx = cx - b.x, dy = cy - b.y;
-    const dist = Math.sqrt(dx*dx + dy*dy);
-    b.angle = Math.atan2(dy, dx);
-    b.x += Math.cos(b.angle) * b.speed;
-    b.y += Math.sin(b.angle) * b.speed;
-    b.wobble += 0.18;
-
-    if (dist < SR + b.size * 1.2 && dist > SR - b.size * 1.2) {
-      const ba = Math.atan2(b.y - cy, b.x - cx);
-      if (angleDiff(ba, shieldAngle) < currentShieldArc / 2) {
-        spawnParticles(b.x, b.y, '#e53935', 10);
-        birds.splice(i, 1);
-        score += 10;
-        document.getElementById('scoreDisplay').textContent = score;
-        document.getElementById('progressBar').style.width = Math.min(score / 5, 100) + '%';
-        currentShieldArc = SHIELD_ARC_MAX - (SHIELD_ARC_MAX - SHIELD_ARC_MIN) * Math.min(score / 500, 1);
-        if (score >= 500) { showWin(); return; }
-        continue;
-      }
-    }
-    if (dist < R + b.size) {
-      spawnParticles(b.x, b.y, '#ff4d4f', 14);
-      birds.splice(i, 1);
-      lives--;
-      updateLives();
-      if (lives <= 0) { showGameOver(); return; }
-      continue;
-    }
-    ctx.save();
-    ctx.translate(b.x, b.y);
-    ctx.rotate(b.angle + Math.PI + Math.sin(b.wobble) * 0.3);
-    ctx.font = `${b.size * 1.6}px serif`;
-    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    ctx.fillText('🐦', 0, 0);
-    ctx.restore();
-  }
-
-  for (let i = particles.length - 1; i >= 0; i--) {
-    const p = particles[i];
-    p.x += p.vx; p.y += p.vy;
-    p.alpha -= 0.045;
-    p.vx *= 0.92; p.vy *= 0.92;
-    if (p.alpha <= 0) { particles.splice(i, 1); continue; }
-    ctx.save();
-    ctx.globalAlpha = p.alpha;
-    ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-    ctx.fillStyle = p.color; ctx.fill();
-    ctx.restore();
-  }
-}
-
-window.addEventListener('resize', () => {
-  if (document.getElementById('page-game').classList.contains('active')) resize();
-});
-document.getElementById('usernameInput').addEventListener('keydown', e => { if (e.key === 'Enter') submitUsername(); });
-document.getElementById('adminPassInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkAdminPass(); });
+animCur()
 </script>
-</body>
-</html>
+</body></html>
