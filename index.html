@@ -338,6 +338,310 @@ button { font-family:inherit; }
 </div>
 
 <div class="overlay hidden" id="alreadyClaimedOverlay">
+  <d  color:#e63012; font-size:11px; font-weight:700; letter-spacing:1.5px;
+  text-transform:uppercase; padding:5px 14px; border-radius:99px; margin-bottom:18px;
+}
+.hero h1 { font-size:34px; font-weight:900; color:#fff; line-height:1.15; margin-bottom:10px; letter-spacing:-0.5px; }
+.hero h1 .red { color:#e63012; }
+.hero h1 .gold { color:#f5c800; }
+.hero-sub { font-size:14px; color:rgba(255,255,255,0.55); line-height:1.65; margin-bottom:28px; }
+
+/* GAME TEASER */
+.game-teaser {
+  background:linear-gradient(135deg,#1a0000 0%,#0d0000 100%);
+  border:1.5px solid #e63012; border-radius:20px;
+  padding:20px 18px 22px; margin:0 0 26px 0;
+  position:relative; overflow:hidden;
+}
+.game-teaser::before {
+  content:''; position:absolute; top:-30px; right:-30px;
+  width:120px; height:120px;
+  background:radial-gradient(circle, rgba(230,48,18,0.18) 0%, transparent 70%);
+  pointer-events:none;
+}
+.game-teaser-top { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+.game-teaser-icon {
+  font-size:38px; width:58px; height:58px; border-radius:14px;
+  background:rgba(230,48,18,0.12); border:1px solid rgba(230,48,18,0.3);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.game-teaser-title { font-size:18px; font-weight:800; color:#fff; margin-bottom:3px; }
+.game-teaser-sub { font-size:12px; color:rgba(255,255,255,0.45); line-height:1.5; }
+.prize-pill {
+  display:inline-flex; align-items:center; gap:6px;
+  background:#e63012; color:#fff; border-radius:99px;
+  padding:7px 16px; font-size:13px; font-weight:800;
+  margin-bottom:14px; width:100%; justify-content:center;
+}
+.how-to { display:flex; gap:8px; justify-content:center; margin-bottom:16px; }
+.how-step {
+  flex:1; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);
+  border-radius:10px; padding:10px 6px; text-align:center;
+}
+.how-step-num { font-size:16px; margin-bottom:4px; }
+.how-step-txt { font-size:10px; color:rgba(255,255,255,0.5); line-height:1.4; }
+.btn-play-big {
+  width:100%; background:linear-gradient(135deg,#e63012,#ff6533);
+  color:#fff; border:none; padding:15px; border-radius:14px;
+  font-size:16px; font-weight:900; cursor:pointer; letter-spacing:0.3px;
+  box-shadow:0 4px 20px rgba(230,48,18,0.4);
+  transition:transform 0.15s, box-shadow 0.15s;
+}
+.btn-play-big:active { transform:scale(0.97); box-shadow:0 2px 10px rgba(230,48,18,0.2); }
+.hero-btns { display:flex; gap:10px; justify-content:center; }
+.btn-primary { background:#e63012; color:#fff; border:none; padding:13px 26px; border-radius:50px; font-size:14px; font-weight:800; cursor:pointer; transition:background 0.2s; }
+.btn-primary:hover { background:#ff4422; }
+.btn-outline { background:transparent; color:#f5c800; border:2px solid #f5c800; padding:13px 26px; border-radius:50px; font-size:14px; font-weight:700; cursor:pointer; transition:background 0.2s; }
+.btn-outline:hover { background:rgba(245,200,0,0.1); }
+
+/* TICKER */
+.ticker-wrap { background:#e63012; overflow:hidden; white-space:nowrap; padding:9px 0; border-bottom:2px solid #c22800; }
+.ticker-inner { display:inline-flex; gap:0; animation:ticker 18s linear infinite; }
+.ticker-item { display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:700; color:#fff; padding:0 28px; }
+.ticker-dot { width:5px; height:5px; background:#fff; border-radius:50%; opacity:0.4; }
+@keyframes ticker { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
+
+/* CONTACT BAR */
+.contact-bar { background:rgba(26,5,0,0.7); border-top:1px solid rgba(230,48,18,0.15); border-bottom:1px solid rgba(230,48,18,0.15); padding:10px 20px; display:flex; align-items:center; justify-content:center; gap:8px; font-size:13px; color:rgba(255,255,255,0.5); }
+.contact-bar span { color:#f5c800; font-weight:600; }
+
+/* SECTION TITLE */
+.section-title { padding:22px 20px 12px; font-size:12px; font-weight:800; color:#e63012; letter-spacing:2px; text-transform:uppercase; display:flex; align-items:center; gap:10px; }
+.section-title::after { content:''; flex:1; height:1px; background:rgba(230,48,18,0.2); }
+
+/* POPULAR GRID */
+.pop-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:0 16px 20px; }
+.pop-card { position:relative; border:1px solid rgba(230,48,18,0.2); border-radius:16px; overflow:hidden; height:140px; cursor:pointer; transition:transform 0.2s; }
+.pop-card:active { transform:scale(0.97); }
+.pop-card img { width:100%; height:100%; object-fit:cover; display:block; }
+.pop-card-overlay {
+  position:absolute; bottom:0; left:0; width:100%;
+  background:linear-gradient(to top, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
+  padding:22px 12px 10px;
+}
+.pop-card-name { font-size:13px; font-weight:700; color:#fff; margin-bottom:1px; }
+.pop-card-sub { font-size:10px; color:rgba(255,255,255,0.55); margin-bottom:3px; }
+.pop-card-price { font-size:13px; font-weight:800; color:#f5c800; }
+.card-badge { position:absolute; top:10px; left:10px; background:#e63012; color:#fff; font-size:9px; font-weight:800; padding:3px 8px; border-radius:99px; letter-spacing:0.5px; text-transform:uppercase; }
+.card-badge.new { background:#f5c800; color:#111; }
+
+/* GAME PAGE — FIX: also flex + z-index */
+.game-page { background:#0d0000; min-height:100vh; display:none; flex-direction:column; align-items:center; position:relative; z-index:1; }
+.game-page.active { display:flex; }
+#ui { width:100%; display:flex; justify-content:space-between; padding:14px 20px; }
+.ui-box { background:rgba(230,48,18,0.08); border:1px solid rgba(230,48,18,0.2); border-radius:12px; padding:8px 16px; color:#fff; font-size:14px; font-weight:500; }
+.ui-box span { color:#e63012; font-weight:700; }
+#lives { display:flex; gap:4px; align-items:center; }
+canvas { display:block; border-radius:16px; max-width:100%; }
+.progress-wrap { width:70%; margin:10px auto 0; }
+.progress-label { font-size:11px; color:rgba(255,255,255,0.4); text-align:center; margin-bottom:5px; }
+.progress-track { background:rgba(255,255,255,0.08); border-radius:99px; height:6px; overflow:hidden; }
+.progress-bar { height:100%; width:0%; background:#e63012; border-radius:99px; transition:width 0.3s; }
+
+/* LEADERBOARD */
+.lb-header { background:rgba(26,5,0,0.8); padding:20px; color:#fff; text-align:center; border-bottom:2px solid #e63012; }
+.lb-header h2 { font-size:22px; font-weight:700; }
+.lb-header p { font-size:13px; color:rgba(255,255,255,0.5); margin-top:4px; }
+.lb-list { padding:16px; }
+.lb-row { background:#1a0a0a; border:1px solid rgba(230,48,18,0.1); border-radius:12px; padding:14px 16px; margin-bottom:10px; display:flex; align-items:center; gap:14px; }
+.lb-rank { font-size:22px; min-width:36px; text-align:center; }
+.lb-name { font-size:15px; font-weight:600; flex:1; color:#f0f0f0; }
+.lb-score { font-size:16px; font-weight:700; color:#f5c800; }
+.lb-empty { text-align:center; color:rgba(255,255,255,0.3); font-size:14px; padding:40px 20px; }
+.lb-badge { font-size:10px; padding:2px 8px; border-radius:99px; background:rgba(230,48,18,0.15); color:#e63012; font-weight:600; margin-left:6px; border:1px solid rgba(230,48,18,0.3); }
+
+/* OVERLAYS */
+.overlay { position:fixed; inset:0; background:rgba(0,0,0,0.78); display:flex; align-items:center; justify-content:center; z-index:200; padding:20px; }
+.overlay.hidden { display:none; }
+.modal { background:#1a0a0a; border:1px solid rgba(230,48,18,0.2); border-radius:20px; padding:28px 24px; width:100%; max-width:340px; text-align:center; color:#f0f0f0; }
+.modal h2 { font-size:20px; font-weight:700; margin-bottom:8px; color:#fff; }
+.modal p { font-size:14px; color:rgba(255,255,255,0.55); margin-bottom:20px; line-height:1.5; }
+.modal input { width:100%; background:#111; border:1.5px solid rgba(230,48,18,0.2); border-radius:10px; padding:12px 16px; font-size:15px; outline:none; margin-bottom:14px; color:#fff; font-family:inherit; }
+.modal input:focus { border-color:#e63012; }
+.modal input::placeholder { color:rgba(255,255,255,0.3); }
+.modal-btn { width:100%; background:#e63012; color:#fff; border:none; border-radius:10px; padding:13px; font-size:15px; font-weight:800; cursor:pointer; margin-bottom:10px; font-family:inherit; transition:background 0.2s; }
+.modal-btn:hover { background:#ff4422; }
+.modal-btn.secondary { background:#222; color:#f0f0f0; border:1px solid rgba(255,255,255,0.1); }
+.modal-btn.secondary:hover { background:#2a2a2a; }
+.modal-btn.danger { background:#ff4d4f; color:#fff; }
+.win-modal { background:#0d0000; border:1px solid rgba(230,48,18,0.3); border-radius:20px; padding:32px 24px; width:100%; max-width:340px; text-align:center; color:#fff; }
+.win-modal h2 { font-size:24px; font-weight:700; margin-bottom:6px; }
+.win-modal p { font-size:14px; color:rgba(255,255,255,0.6); margin-bottom:20px; }
+
+/* VOUCHER */
+.voucher-card { background:#fff; border-radius:16px; padding:20px; text-align:center; }
+.voucher-brand { font-size:11px; color:#888; margin-bottom:4px; text-transform:uppercase; letter-spacing:1px; }
+.voucher-pct { font-size:38px; font-weight:800; color:#e63012; line-height:1.1; margin:8px 0; }
+.voucher-off { font-size:14px; color:#333; font-weight:700; margin-bottom:16px; }
+.voucher-code-wrap { border-top:1px dashed #ddd; padding-top:14px; margin-bottom:12px; }
+.voucher-code-label { font-size:11px; color:#aaa; margin-bottom:6px; }
+.voucher-code { font-size:20px; font-weight:700; color:#111; letter-spacing:3px; background:#f5f5f5; padding:8px 16px; border-radius:8px; display:inline-block; }
+.voucher-footer { display:flex; justify-content:space-between; font-size:12px; color:#aaa; border-top:1px dashed #ddd; padding-top:12px; }
+.voucher-footer strong { color:#333; }
+.voucher-validity { margin-top:10px; font-size:10px; color:#ccc; }
+.voucher-disclaimer { margin-top:10px; background:#fff0ee; border-radius:8px; padding:8px 10px; font-size:11px; color:#c62200; line-height:1.5; }
+
+/* ADMIN */
+.admin-row { display:flex; align-items:center; justify-content:space-between; background:#1a0a0a; border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:12px 14px; margin-bottom:8px; }
+.admin-row .uname { font-size:14px; font-weight:600; color:#f0f0f0; }
+.admin-row .uscore { font-size:13px; color:rgba(255,255,255,0.4); }
+.admin-remove { background:#ff4d4f; color:#fff; border:none; border-radius:8px; padding:6px 14px; font-size:12px; font-weight:600; cursor:pointer; }
+.diff-section { background:#0d1a0d; border:1px solid rgba(80,200,80,0.25); border-radius:12px; padding:16px; margin-bottom:16px; text-align:left; }
+.diff-section h4 { font-size:13px; color:#7dff7d; margin-bottom:12px; }
+.diff-row { margin-bottom:12px; }
+.diff-label { font-size:12px; color:rgba(255,255,255,0.55); margin-bottom:6px; display:flex; justify-content:space-between; }
+.diff-label span { color:#f5c800; font-weight:700; }
+.diff-slider { width:100%; -webkit-appearance:none; appearance:none; height:6px; border-radius:99px; outline:none; background:rgba(255,255,255,0.1); cursor:pointer; }
+.diff-slider::-webkit-slider-thumb { -webkit-appearance:none; width:20px; height:20px; border-radius:50%; background:#e63012; cursor:pointer; border:2px solid #111; }
+.diff-preset-row { display:flex; gap:8px; margin-top:4px; }
+.diff-preset { flex:1; padding:8px 4px; border-radius:8px; border:1px solid rgba(255,255,255,0.1); background:#111; color:rgba(255,255,255,0.6); font-size:11px; font-weight:600; cursor:pointer; text-align:center; font-family:inherit; transition:all 0.2s; }
+.diff-preset:hover { border-color:#e63012; color:#e63012; }
+.diff-preset.active { background:rgba(230,48,18,0.15); border-color:#e63012; color:#e63012; }
+.flagged-section { margin-top:20px; padding:16px; background:#1a0800; border-radius:12px; border:1px solid rgba(230,48,18,0.2); }
+.flagged-section h4 { font-size:13px; color:#e63012; margin-bottom:10px; }
+button { font-family:inherit; }
+</style>
+</head>
+<body>
+<canvas id="bgCanvas"></canvas>
+
+<nav class="nav">
+  <div>
+    <div class="nav-logo" onclick="showPage('home')">
+      <span class="brand-red">RED</span> गोलगप्पा अड्डा
+      <span>Street Food · Nagpur</span>
+    </div>
+  </div>
+  <div class="nav-right">
+    <button class="nav-btn" onclick="showPage('leaderboard')">🏆 Leaderboard</button>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-bg-img"></div>
+    <div class="hero-content">
+      <div class="hero-badge">🫙 RED गोलगप्पा अड्डा</div>
+      <h1>Hungry? <span class="red">Play &amp;</span> <span class="gold">Eat Free.</span></h1>
+      <p class="hero-sub">Score 500 points in our game while you wait<br>and win a <strong style="color:#f5c800;">FREE plate of Golgappa!</strong></p>
+
+      <div class="game-teaser">
+        <div class="game-teaser-top">
+          <div class="game-teaser-icon">🎮</div>
+          <div>
+            <div class="game-teaser-title">Food Guard</div>
+            <div class="game-teaser-sub">Protect your Golgappa from the birds.<br>Reach 500 pts → win free food!</div>
+          </div>
+        </div>
+        <div class="prize-pill">🏆 Win a FREE Plate of Golgappa!</div>
+        <div class="how-to">
+          <div class="how-step"><div class="how-step-num">👆</div><div class="how-step-txt">Move your finger</div></div>
+          <div class="how-step"><div class="how-step-num">🛡️</div><div class="how-step-txt">Block the birds</div></div>
+          <div class="how-step"><div class="how-step-num">🫙</div><div class="how-step-txt">Score 500, eat free</div></div>
+        </div>
+        <button class="btn-play-big" onclick="askUsername()">🎮 Play Now — It's Free!</button>
+      </div>
+
+      <div class="hero-btns">
+        <button class="btn-outline" onclick="showPage('leaderboard')">🏆 Leaderboard</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker-wrap">
+    <div class="ticker-inner" id="tickerInner"></div>
+  </div>
+
+  <div class="contact-bar">
+    📍 <span>RED गोलगप्पा अड्डा</span> &nbsp;·&nbsp; 📞 <span>Visit us today!</span>
+  </div>
+
+  <div style="text-align:center;padding:14px 20px 30px;">
+    <button class="btn-primary" style="padding:14px 40px;" onclick="askUsername()">🎮 Play Food Guard &amp; Win Free Golgappa</button>
+  </div>
+</div>
+
+<!-- GAME -->
+<div id="page-game" class="page game-page">
+  <div id="ui">
+    <div class="ui-box">Score <span id="scoreDisplay">0</span></div>
+    <div class="ui-box" id="lives">
+      <span style="opacity:1">❤️</span><span style="opacity:1">❤️</span><span style="opacity:1">❤️</span>
+    </div>
+  </div>
+  <canvas id="c"></canvas>
+  <div class="progress-wrap">
+    <div class="progress-label">Goal: 500 points</div>
+    <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+  </div>
+</div>
+
+<!-- LEADERBOARD -->
+<div id="page-leaderboard" class="page">
+  <div class="lb-header">
+    <h2>🏆 Leaderboard</h2>
+    <p>Top players at RED गोलगप्पा अड्डा</p>
+  </div>
+  <div class="lb-list" id="lbList"><div class="lb-empty">No scores yet. Be the first to play!</div></div>
+  <div style="text-align:center;padding:10px 20px 30px;">
+    <div id="adminTrigger" style="font-size:28px;cursor:pointer;user-select:none;" onclick="handleAdminTap()">🫙</div>
+    <div id="adminTapHint" style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px;opacity:0;transition:opacity 0.3s;"></div>
+  </div>
+</div>
+
+<!-- OVERLAYS -->
+<div class="overlay hidden" id="usernameOverlay">
+  <div class="modal">
+    <div style="font-size:40px;margin-bottom:10px;">🎮</div>
+    <h2>Enter Your Name</h2>
+    <p>Your name will appear on the leaderboard. Keep it clean and fun!</p>
+    <input type="text" id="usernameInput" placeholder="Your name..." maxlength="18" autocomplete="off">
+    <div id="usernameError" style="color:#ff4d4f;font-size:13px;margin:-8px 0 12px;display:none;">Name must be at least 2 characters.</div>
+    <button class="modal-btn" onclick="submitUsername()">Let's Play! 🚀</button>
+    <button class="modal-btn secondary" onclick="closeOverlay('usernameOverlay')">Cancel</button>
+  </div>
+</div>
+
+<div class="overlay hidden" id="winOverlay">
+  <div class="win-modal">
+    <div style="font-size:52px;margin-bottom:10px;">🏆</div>
+    <h2>You Won!</h2>
+    <p>Amazing! You hit 500 points. You've earned a free plate of Golgappa!</p>
+    <div style="background:rgba(230,48,18,0.1);border:1px solid rgba(230,48,18,0.3);border-radius:14px;padding:18px;margin-bottom:20px;">
+      <div style="font-size:32px;font-weight:800;color:#e63012;line-height:1;">FREE GOLGAPPA</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:6px;">with your order today</div>
+    </div>
+    <button class="modal-btn" onclick="claimOffer()">🎁 Claim My Offer</button>
+    <button class="modal-btn secondary" onclick="closeOverlay('winOverlay');startGame()">Play Again</button>
+  </div>
+</div>
+
+<div class="overlay hidden" id="voucherOverlay">
+  <div class="win-modal">
+    <div style="font-size:44px;margin-bottom:10px;">🎉</div>
+    <h2 style="margin-bottom:4px;">Congratulations!</h2>
+    <p style="margin-bottom:18px;">Show this screen at the counter to redeem your free Golgappa.</p>
+    <div class="voucher-card">
+      <div class="voucher-brand">RED गोलगप्पा अड्डा — Voucher</div>
+      <div class="voucher-pct">FREE</div>
+      <div class="voucher-off">Plate of Golgappa</div>
+      <div class="voucher-code-wrap">
+        <div class="voucher-code-label">Voucher Code</div>
+        <div id="voucherCode" class="voucher-code"></div>
+      </div>
+      <div class="voucher-footer">
+        <span>Player: <strong id="voucherName"></strong></span>
+        <span id="voucherDate" style="font-weight:600;color:#333;"></span>
+      </div>
+      <div class="voucher-validity">Valid today only · One time use</div>
+      <div class="voucher-disclaimer">📋 Screenshots are not valid. Only live on-screen display accepted at counter.</div>
+    </div>
+    <button class="modal-btn secondary" style="margin-top:16px;" onclick="closeOverlay('voucherOverlay');showPage('home')">Done</button>
+  </div>
+</div>
+
+<div class="overlay hidden" id="alreadyClaimedOverlay">
   <div class="modal">
     <div style="font-size:40px;margin-bottom:10px;">🎟️</div>
     <h2>Already Claimed!</h2>
