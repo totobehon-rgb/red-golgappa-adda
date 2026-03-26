@@ -23,12 +23,6 @@ body { font-family:'Segoe UI',sans-serif; background:#0d0200; color:#f0f0f0; min
 
 /* HERO */
 .hero { position:relative; overflow:hidden; background:#0a0000; border-bottom:3px solid #e63012; }
-.hero-bg-img {
-  position:absolute; inset:0;
-  background-image:url('https://images.unsplash.com/photo-1601050690597-df0568f70950?w=900&q=80');
-  background-size:cover; background-position:center;
-  filter:brightness(0.18) saturate(1.6); z-index:0;
-}
 .hero-content { position:relative; z-index:1; padding:38px 24px 44px; text-align:center; }
 .hero-badge {
   display:inline-flex; align-items:center; gap:6px;
@@ -115,8 +109,7 @@ body { font-family:'Segoe UI',sans-serif; background:#0d0200; color:#f0f0f0; min
   padding:22px 12px 10px;
 }
 .pop-card-name { font-size:13px; font-weight:700; color:#fff; margin-bottom:1px; }
-.pop-card-sub { font-size:10px; color:rgba(255,255,255,0.55); margin-bottom:3px; }
-.pop-card-price { font-size:13px; font-weight:800; color:#f5c800; }
+.pop-card-sub { font-size:10px; color:rgba(255,255,255,0.55); }
 .card-badge { position:absolute; top:10px; left:10px; background:#e63012; color:#fff; font-size:9px; font-weight:800; padding:3px 8px; border-radius:99px; letter-spacing:0.5px; text-transform:uppercase; }
 .card-badge.new { background:#f5c800; color:#111; }
 
@@ -164,6 +157,23 @@ canvas { display:block; border-radius:16px; max-width:100%; }
 .win-modal { background:#0d0000; border:1px solid rgba(230,48,18,0.3); border-radius:20px; padding:32px 24px; width:100%; max-width:340px; text-align:center; color:#fff; }
 .win-modal h2 { font-size:24px; font-weight:700; margin-bottom:6px; }
 .win-modal p { font-size:14px; color:rgba(255,255,255,0.6); margin-bottom:20px; }
+
+/* GAME OVER MODAL */
+.gameover-modal {
+  background:#0d0000; border:1.5px solid rgba(230,48,18,0.35);
+  border-radius:20px; padding:32px 24px; width:100%; max-width:340px; text-align:center; color:#fff;
+}
+.gameover-modal .go-icon { font-size:56px; margin-bottom:10px; }
+.gameover-modal h2 { font-size:26px; font-weight:900; color:#e63012; margin-bottom:6px; letter-spacing:-0.5px; }
+.gameover-modal .go-score-label { font-size:12px; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:4px; }
+.gameover-modal .go-score { font-size:44px; font-weight:900; color:#f5c800; line-height:1.1; margin-bottom:6px; }
+.gameover-modal .go-pts { font-size:13px; color:rgba(255,255,255,0.35); margin-bottom:22px; }
+.gameover-modal .go-tip {
+  background:rgba(230,48,18,0.08); border:1px solid rgba(230,48,18,0.2);
+  border-radius:10px; padding:10px 14px; font-size:12px;
+  color:rgba(255,255,255,0.5); line-height:1.5; margin-bottom:20px;
+}
+.gameover-modal .go-tip strong { color:#e63012; }
 
 /* VOUCHER */
 .voucher-card { background:#fff; border-radius:16px; padding:20px; text-align:center; }
@@ -216,7 +226,6 @@ button { font-family:inherit; }
 <!-- HOME -->
 <div id="page-home" class="page active">
   <div class="hero">
-    <div class="hero-bg-img"></div>
     <div class="hero-content">
       <div class="hero-badge">🫙 RED गोलगप्पा अड्डा</div>
       <h1>Hungry? <span class="red">Play &amp;</span> <span class="gold">Eat Free.</span></h1>
@@ -261,7 +270,6 @@ button { font-family:inherit; }
       <div class="pop-card-overlay">
         <div class="pop-card-name">Golgappa</div>
         <div class="pop-card-sub">Pani Puri · Spicy / Sweet</div>
-        <div class="pop-card-price">₹30 – ₹50</div>
       </div>
     </div>
 
@@ -271,7 +279,6 @@ button { font-family:inherit; }
       <div class="pop-card-overlay">
         <div class="pop-card-name">Dabeli</div>
         <div class="pop-card-sub">Masala · Crunchy</div>
-        <div class="pop-card-price">₹40</div>
       </div>
     </div>
 
@@ -281,7 +288,6 @@ button { font-family:inherit; }
       <div class="pop-card-overlay">
         <div class="pop-card-name">Ragda Patties</div>
         <div class="pop-card-sub">Loaded · Chatpata</div>
-        <div class="pop-card-price">₹50</div>
       </div>
     </div>
 
@@ -290,7 +296,6 @@ button { font-family:inherit; }
       <div class="pop-card-overlay">
         <div class="pop-card-name">Sev Puri</div>
         <div class="pop-card-sub">Crispy · Tangy</div>
-        <div class="pop-card-price">₹35 – ₹55</div>
       </div>
     </div>
 
@@ -394,6 +399,20 @@ button { font-family:inherit; }
   </div>
 </div>
 
+<!-- GAME OVER OVERLAY -->
+<div class="overlay hidden" id="gameOverOverlay">
+  <div class="gameover-modal">
+    <div class="go-icon">💀</div>
+    <h2>Game Over!</h2>
+    <div class="go-score-label">Your Score</div>
+    <div class="go-score" id="goScoreDisplay">0</div>
+    <div class="go-pts">points</div>
+    <div class="go-tip">Score <strong>500 pts</strong> to win a FREE plate of Golgappa! Keep trying! 🫙</div>
+    <button class="modal-btn" onclick="closeOverlay('gameOverOverlay');startGame()">🔄 Play Again</button>
+    <button class="modal-btn secondary" onclick="closeOverlay('gameOverOverlay');showPage('home')">🏠 Go Home</button>
+  </div>
+</div>
+
 <div class="overlay hidden" id="adminPassOverlay">
   <div class="modal">
     <div style="font-size:36px;margin-bottom:10px;">🔒</div>
@@ -422,12 +441,12 @@ function esc(str) {
 
 (function(){
   const items = [
-    '🫙 Golgappa from ₹30','🥙 Dabeli Special ₹40','🍛 Ragda Patties ₹50',
-    '🎮 Score 500 pts → WIN Free Golgappa!','🌶️ Sev Puri from ₹35',
-    '🥗 Bhel Puri ₹30','🏆 Play Food Guard Now!','📍 Visit RED गोलगप्पा अड्डा Today!',
+    '🫙 Golgappa — Fresh &amp; Spicy!','🥙 Dabeli Special','🍛 Ragda Patties — Loaded!',
+    '🎮 Score 500 pts → WIN Free Golgappa!','🌶️ Sev Puri — Crispy &amp; Tangy',
+    '🥗 Bhel Puri — Classic Street Style','🏆 Play Food Guard Now!','📍 Visit RED गोलगप्पा अड्डा Today!',
   ];
   const all = [...items,...items];
-  document.getElementById('tickerInner').innerHTML = all.map(t=>`<span class="ticker-item">${esc(t)}<span class="ticker-dot"></span></span>`).join('');
+  document.getElementById('tickerInner').innerHTML = all.map(t=>`<span class="ticker-item">${t}<span class="ticker-dot"></span></span>`).join('');
 })();
 
 function showPage(name) {
@@ -546,7 +565,12 @@ function claimOffer(){
   document.getElementById('voucherOverlay').classList.remove('hidden');
 }
 function showWin(){ running=false; clearInterval(spawnInterval); clearInterval(diffInterval); cancelAnimationFrame(frameId); if(currentUser) saveScore(currentUser,score); document.getElementById('winOverlay').classList.remove('hidden'); }
-function showGameOver(){ running=false; clearInterval(spawnInterval); clearInterval(diffInterval); cancelAnimationFrame(frameId); if(currentUser) saveScore(currentUser,score); setTimeout(()=>{ if(confirm('Game Over! Score: '+score+'\nPlay again?')) startGame(); else showPage('home'); },100); }
+function showGameOver(){
+  running=false; clearInterval(spawnInterval); clearInterval(diffInterval); cancelAnimationFrame(frameId);
+  if(currentUser) saveScore(currentUser,score);
+  document.getElementById('goScoreDisplay').textContent=score;
+  document.getElementById('gameOverOverlay').classList.remove('hidden');
+}
 
 // GAME ENGINE
 const canvas=document.getElementById('c');
