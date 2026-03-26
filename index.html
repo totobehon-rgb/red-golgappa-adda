@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>RED गोलगप्पा अड्डा</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+body { font-family:'Segoe UI',sans-serif; background:#0f0000; color:#f0f0f0; min-height:100vh; overflow-x:hidden; }
+
+/* NAV */
+.nav { background:#0f0000; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; border-bottom:2px solid #e53935; }
+.nav-logo { font-size:18px; font-weight:800; color:#fff; letter-spacing:0.3px; line-height:1.2; cursor:pointer; }
+.nav-logo span { color:#e53935; display:block; font-size:12px; font-weight:500; letter-spacing:1px; text-transform:uppercase; }
+.nav-right { display:flex; gap:10px; }
+.nav-btn { background:rgba(229,57,53,0.12); border:1px solid rgba(229,57,53,0.4); color:#e53935; padding:7px 14px; border-radius:50px; font-size:13px; cursor:pointer; font-weight:600; transition:background 0.2s; }
+.nav-btn:hover { background:rgba(229,57,53,0.25); }
+
+/* PAGES */
+.page { display:none; }
+.page.active { display:block; min-height:100vh; }
+
+/* ── HERO ── */
+.hero {
+  position:relative; overflow:hidden;
+  background:#0a0000;
+  border-bottom:3px solid #e53935;
+}
+.hero-bg-img {
+  position:absolute; inset:0;
+  background-image:url('https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?w=900&q=80');
+  background-size:cover; background-position:center top;
+  filter:brightness(0.18) saturate(1.6);
+  z-index:0;
+}
+.hero-content {
+  position:relative; z-index:1;
+  padding:38px 24px 44px;
+  text-align:center;
+}
+.hero-badge {
+  display:inline-flex; align-items:center; gap:6px;
+  background:rgba(229,57,53,0.15); border:1px solid rgba(229,57,53,0.4);
+  color:#e53935; font-size:11px; font-weight:700; letter-spacing:1.5px;
+  text-transform:uppercase; padding:5px 14px; border-radius:99px;
+  margin-bottom:18px;
+}
+.hero h1 {
+  font-size:34px; font-weight:900; color:#fff; line-height:1.15;
+  margin-bottom:10px; letter-spacing:-0.5px;
+}
+.hero h1 span { color:#f5c800; }
+.hero-sub { font-size:14px; color:rgba(255,255,255,0.55); line-height:1.65; margin-bottom:28px; }
+
+/* GAME TEASER CARD */
+.game-teaser {
+  background:linear-gradient(135deg,#1a0000 0%,#0d0000 100%);
+  border:1.5px solid #e53935;
+  border-radius:20px;
+  padding:20px 18px 22px;
+  margin:0 0 26px 0;
+  position:relative; overflow:hidden;
+}
+.game-teaser::before {
+  content:'';
+  position:absolute; top:-30px; right:-30px;
+  width:120px; height:120px;
+  background:radial-gradient(circle, rgba(229,57,53,0.18) 0%, transparent 70%);
+  pointer-events:none;
+}
+.game-teaser-top { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+.game-teaser-icon {
+  font-size:38px; width:58px; height:58px; border-radius:14px;
+  background:rgba(229,57,53,0.12); border:1px solid rgba(229,57,53,0.3);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.game-teaser-title { font-size:18px; font-weight:800; color:#fff; margin-bottom:3px; }
+.game-teaser-sub { font-size:12px; color:rgba(255,255,255,0.45); line-height:1.5; }
+.prize-pill {
+  display:inline-flex; align-items:center; gap:6px;
+  background:#e53935; color:#fff; border-radius:99px;
+  padding:7px 16px; font-size:13px; font-weight:800;
+  margin-bottom:14px; width:100%; justify-content:center;
+}
+.how-to { display:flex; gap:8px; justify-content:center; margin-bottom:16px; }
+.how-step {
+  flex:1; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);
+  border-radius:10px; padding:10px 6px; text-align:center;
+}
+.how-step-num { font-size:16px; margin-bottom:4px; }
+.how-step-txt { font-size:10px; color:rgba(255,255,255,0.5); line-height:1.4; }
+.btn-play-big {
+  width:100%; background:linear-gradient(135deg,#e53935,#b71c1c);
+  color:#fff; border:none; padding:15px; border-radius:14px;
+  font-size:16px; font-weight:900; cursor:pointer; letter-spacing:0.3px;
+  box-shadow:0 4px 20px rgba(229,57,53,0.4);
+  transition:transform 0.15s, box-shadow 0.15s;
+}
+.btn-play-big:active { transform:scale(0.97); box-shadow:0 2px 10px rgba(229,57,53,0.2); }
+
+.hero-btns { display:flex; gap:10px; justify-content:center; }
+.btn-primary { background:#e53935; color:#fff; border:none; padding:13px 26px; border-radius:50px; font-size:14px; font-weight:800; cursor:pointer; transition:background 0.2s; }
+.btn-primary:hover { background:#ef5350; }
+.btn-outline { background:transparent; color:#e53935; border:2px solid #e53935; padding:13px 26px; border-radius:50px; font-size:14px; font-weight:700; cursor:pointer; transition:background 0.2s; }
+.btn-outline:hover { background:rgba(229,57,53,0.1); }
+
+/* TICKER */
+.ticker-wrap {
+  background:#e53935; overflow:hidden; white-space:nowrap;
+  padding:9px 0; border-bottom:2px solid #c62828;
+}
+.ticker-inner {
+  display:inline-flex; gap:0;
+  animation:ticker 20s linear infinite;
+}
+.ticker-item {
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:12px; font-weight:700; color:#fff;
+  padding:0 28px;
+}
+.ticker-dot { width:5px; height:5px; background:#fff; border-radius:50%; opacity:0.4; }
+@keyframes ticker { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
+
+/* CONTACT BAR */
+.contact-bar { background:#1a0000; border-top:1px solid rgba(229,57,53,0.15); border-bottom:1px solid rgba(229,57,53,0.15); padding:10px 20px; display:flex; align-items:center; justify-content:center; gap:8px; font-size:13px; color:rgba(255,255,255,0.5); }
+.contact-bar span { color:#e53935; font-weight:600; }
+
+/* SECTION TITLE */
+.section-title { padding:22px 20px 12px; font-size:12px; font-weight:800; color:#e53935; letter-spacing:2px; text-transform:uppercase; display:flex; align-items:center; gap:10px; }
+.section-title::after { content:''; flex:1; height:1px; background:rgba(229,57,53,0.2); }
+
+/* POPULAR GRID */
+.pop-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:0 16px 20px; }
+.pop-card {
+  position:relative; border:1px solid rgba(229,57,53,0.2);
+  border-radius:16px; overflow:hidden; height:150px; cursor:pointer;
+  transition:transform 0.2s, border-color 0.2s;
+}
+.pop-card:active { transform:scale(0.97); }
+.pop-card img { width:100%; height:100%; object-fit:cover; display:block; }
+.pop-card-overlay {
+  position:absolute; bottom:0; left:0; width:100%;
+  background:linear-gradient(to top, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
+  padding:22px 12px 10px;
+}
+.pop-card-name { font-size:13px; font-weight:700; color:#fff; margin-bottom:1px; }
+.pop-card-sub { font-size:10px; color:rgba(255,255,255,0.55); margin-bottom:3px; }
+.pop-card-price { font-size:13px; font-weight:800; color:#f5c800; }
+.new-badge {
+  position:absolute; top:8px; left:8px;
+  background:#e53935; color:#fff; font-size:9px; font-weight:800;
+  padding:3px 8px; border-radius:99px; letter-spacing:0.5px;
+  text-transform:uppercase; border:1px solid rgba(255,255,255,0.3);
+}
+.special-badge {
+  position:absolute; top:8px; right:8px;
+  background:#f5c800; color:#111; font-size:9px; font-weight:800;
+  padding:3px 8px; border-radius:99px; letter-spacing:0.5px;
+  text-transform:uppercase;
+}
+
+/* GAME PAGE */
+.game-page { background:#0a0000; min-height:100vh; display:none; flex-direction:column; align-items:center; }
+.game-page.active { display:flex; }
+#ui { width:100%; display:flex; justify-content:space-between; padding:14px 20px; }
+.ui-box { background:rgba(229,57,53,0.08); border:1px solid rgba(229,57,53,0.2); border-radius:12px; padding:8px 16px; color:#fff; font-size:14px; font-weight:500; }
+.ui-box span { color:#e53935; font-weight:700; }
+#lives { display:flex; gap:4px; align-items:center; }
+canvas { display:block; border-radius:16px; max-width:100%; }
+.progress-wrap { width:70%; margin:10px auto 0; }
+.progress-label { font-size:11px; color:rgba(255,255,255,0.4); text-align:center; margin-bottom:5px; }
+.progress-track { background:rgba(255,255,255,0.08); border-radius:99px; height:6px; overflow:hidden; }
+.progress-bar { height:100%; width:0%; background:#e53935; border-radius:99px; transition:width 0.3s; }
+.powered { color:rgba(255,255,255,0.2); font-size:11px; text-align:center; padding:14px 0 20px; }
+.powered span { color:rgba(229,57,53,0.5); font-weight:700; }
+
+/* LEADERBOARD */
+.lb-header { background:#1a0000; padding:20px; color:#fff; text-align:center; border-bottom:2px solid #e53935; }
+.lb-header h2 { font-size:22px; font-weight:700; }
+.lb-header p { font-size:13px; color:rgba(255,255,255,0.5); margin-top:4px; }
+.lb-list { padding:16px; }
+.lb-row { background:#1a1a1a; border:1px solid rgba(229,57,53,0.15); border-radius:12px; padding:14px 16px; margin-bottom:10px; display:flex; align-items:center; gap:14px; }
+.lb-rank { font-size:22px; min-width:36px; text-align:center; }
+.lb-name { font-size:15px; font-weight:600; flex:1; color:#f0f0f0; }
+.lb-score { font-size:16px; font-weight:700; color:#f5c800; }
+.lb-empty { text-align:center; color:rgba(255,255,255,0.3); font-size:14px; padding:40px 20px; }
+.lb-badge { font-size:10px; padding:2px 8px; border-radius:99px; background:rgba(229,57,53,0.15); color:#e53935; font-weight:600; margin-left:6px; border:1px solid rgba(229,57,53,0.3); }
+
+/* OVERLAYS */
+.overlay { position:fixed; inset:0; background:rgba(0,0,0,0.75); display:flex; align-items:center; justify-content:center; z-index:200; padding:20px; }
+.overlay.hidden { display:none; }
+.modal { background:#1a0a0a; border:1px solid rgba(229,57,53,0.2); border-radius:20px; padding:28px 24px; width:100%; max-width:340px; text-align:center; color:#f0f0f0; }
+.modal h2 { font-size:20px; font-weight:700; margin-bottom:8px; color:#fff; }
+.modal p { font-size:14px; color:rgba(255,255,255,0.55); margin-bottom:20px; line-height:1.5; }
+.modal input { width:100%; background:#111; border:1.5px solid rgba(229,57,53,0.2); border-radius:10px; padding:12px 16px; font-size:15px; outline:none; margin-bottom:14px; color:#fff; font-family:inherit; }
+.modal input:focus { border-color:#e53935; }
+.modal input::placeholder { color:rgba(255,255,255,0.3); }
+.modal-btn { width:100%; background:#e53935; color:#fff; border:none; border-radius:10px; padding:13px; font-size:15px; font-weight:800; cursor:pointer; margin-bottom:10px; font-family:inherit; transition:background 0.2s; }
+.modal-btn:hover { background:#ef5350; }
+.modal-btn.secondary { background:#222; color:#f0f0f0; border:1px solid rgba(255,255,255,0.1); }
+.modal-btn.secondary:hover { background:#2a2a2a; }
+.modal-btn.danger { background:#ff4d4f; color:#fff; }
+
+/* WIN MODAL */
+.win-modal { background:#0d0000; border:1px solid rgba(229,57,53,0.3); border-radius:20px; padding:32px 24px; width:100%; max-width:340px; text-align:center; color:#fff; }
+.win-modal h2 { font-size:24px; font-weight:700; margin-bottom:6px; }
+.win-modal p { font-size:14px; color:rgba(255,255,255,0.6); margin-bottom:20px; }
+
+/* VOUCHER */
+.voucher-card { background:#fff; border-radius:16px; padding:20px; text-align:center; position:relative; overflow:hidden; }
+.voucher-brand { font-size:11px; color:#888; margin-bottom:4px; text-transform:uppercase; letter-spacing:1px; }
+.voucher-pct { font-size:38px; font-weight:800; color:#e53935; line-height:1.1; margin:8px 0; }
+.voucher-off { font-size:14px; color:#333; font-weight:700; margin-bottom:16px; }
+.voucher-code-wrap { border-top:1px dashed #ddd; padding-top:14px; margin-bottom:12px; }
+.voucher-code-label { font-size:11px; color:#aaa; margin-bottom:6px; }
+.voucher-code { font-size:20px; font-weight:700; color:#111; letter-spacing:3px; background:#f5f5f5; padding:8px 16px; border-radius:8px; display:inline-block; }
+.voucher-footer { display:flex; justify-content:space-between; font-size:12px; color:#aaa; border-top:1px dashed #ddd; padding-top:12px; }
+.voucher-footer strong { color:#333; }
+.voucher-validity { margin-top:10px; font-size:10px; color:#ccc; }
+.voucher-disclaimer { margin-top:10px; background:#fff0f0; border-radius:8px; padding:8px 10px; font-size:11px; color:#c62828; line-height:1.5; }
+
+/* ADMIN */
+.admin-row { display:flex; align-items:center; justify-content:space-between; background:#1a1a1a; border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:12px 14px; margin-bottom:8px; }
+.admin-row .uname { font-size:14px; font-weight:600; color:#f0f0f0; }
+.admin-row .uscore { font-size:13px; color:rgba(255,255,255,0.4); }
+.admin-remove { background:#ff4d4f; color:#fff; border:none; border-radius:8px; padding:6px 14px; font-size:12px; font-weight:600; cursor:pointer; }
+
+/* DIFFICULTY SLIDER */
+.diff-section {
+  background:#0d1a0d; border:1px solid rgba(80,200,80,0.25);
+  border-radius:12px; padding:16px; margin-bottom:16px; text-align:left;
+}
+.diff-section h4 { font-size:13px; color:#7dff7d; margin-bottom:12px; }
+.diff-row { margin-bottom:12px; }
+.diff-label { font-size:12px; color:rgba(255,255,255,0.55); margin-bottom:6px; display:flex; justify-content:space-between; }
+.diff-label span { color:#f5c800; font-weight:700; }
+.diff-slider {
+  width:100%; -webkit-appearance:none; appearance:none;
+  height:6px; border-radius:99px; outline:none;
+  background:rgba(255,255,255,0.1); cursor:pointer;
+}
+.diff-slider::-webkit-slider-thumb {
+  -webkit-appearance:none; width:20px; height:20px;
+  border-radius:50%; background:#e53935; cursor:pointer;
+  border:2px solid #111;
+}
+.diff-preset-row { display:flex; gap:8px; margin-top:4px; }
+.diff-preset {
+  flex:1; padding:8px 4px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);
+  background:#111; color:rgba(255,255,255,0.6); font-size:11px; font-weight:600;
+  cursor:pointer; text-align:center; font-family:inherit; transition:all 0.2s;
+}
+.diff-preset:hover { border-color:#e53935; color:#e53935; }
+.diff-preset.active { background:rgba(229,57,53,0.15); border-color:#e53935; color:#e53935; }
+.flagged-section { margin-top:20px; padding:16px; background:#1a0800; border-radius:12px; border:1px solid rgba(229,57,53,0.2); }
+.flagged-section h4 { font-size:13px; color:#e53935; margin-bottom:10px; }
+
+button { font-family:inherit; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div>
+    <div class="nav-logo" onclick="showPage('home')">🫙 RED गोलगप्पा अड्डा <span>Street Food · Nagpur</span></div>
+  </div>
+  <div class="nav-right">
+    <button class="nav-btn" onclick="showPage('leaderboard')">🏆</button>
+  </div>
+</nav>
+
+<!-- ════════════ HOME ════════════ -->
+<div id="page-home" class="page active">
+
+  <div class="hero">
+    <div class="hero-bg-img"></div>
+    <div class="hero-content">
+      <div class="hero-badge">🫙 RED गोलगप्पा अड्डा</div>
+      <h1>Hungry? <span>Play &amp; Eat Free.</span></h1>
+      <p class="hero-sub">Score 500 points in our game while you wait<br>and win a <strong style="color:#f5c800;">FREE Dabeli!</strong></p>
+
+      <div class="game-teaser">
+        <div class="game-teaser-top">
+          <div class="game-teaser-icon">🎮</div>
+          <div>
+            <div class="game-teaser-title">Golgappa Guard</div>
+            <div class="game-teaser-sub">Protect your plate from the birds.<br>Reach 500 pts → win free Dabeli!</div>
+          </div>
+        </div>
+        <div class="prize-pill">🏆 Win a FREE Dabeli worth ₹40!</div>
+        <div class="how-to">
+          <div class="how-step"><div class="how-step-num">👆</div><div class="how-step-txt">Move your finger</div></div>
+          <div class="how-step"><div class="how-step-num">🛡️</div><div class="how-step-txt">Block the birds</div></div>
+          <div class="how-step"><div class="how-step-num">🫙</div><div class="how-step-txt">Score 500, eat free</div></div>
+        </div>
+        <button class="btn-play-big" onclick="askUsername()">🎮 Play Now — It's Free!</button>
+      </div>
+
+      <div class="hero-btns">
+        <button class="btn-outline" onclick="showPage('leaderboard')">🏆 Leaderboard</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker-inner" id="tickerInner"></div>
+  </div>
+
+
+  <div style="text-align:center;padding:10px 20px 30px;">
+    <button class="btn-primary" style="padding:14px 40px;" onclick="askUsername()">🎮 Play Golgappa Guard &amp; Win Free Dabeli</button>
+    <div style="font-size:11px;color:rgba(255,255,255,0.2);margin-top:10px;">Powered by <strong style="color:rgba(229,57,53,0.4);">Web with Saurabh</strong></div>
+  </div>
+</div>
+
+<!-- ════════════ GAME ════════════ -->
+<div id="page-game" class="page game-page">
+  <div id="ui">
+    <div class="ui-box">Score <span id="scoreDisplay">0</span></div>
+    <div class="ui-box" id="lives"></div>
+  </div>
+  <canvas id="c" width="575" height="575"></canvas>
+  <div class="progress-wrap">
+    <div class="progress-label">Goal: 500 points</div>
+    <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+  </div>
+  <div class="powered">Powered by <span>Web with Saurabh</span></div>
+</div>
+
+<!-- ════════════ LEADERBOARD ════════════ -->
+<div id="page-leaderboard" class="page">
+  <div class="lb-header">
+    <h2>🏆 Leaderboard</h2>
+    <p>Top players at RED गोलगप्पा अड्डा</p>
+  </div>
+  <div class="lb-list" id="lbList"><div class="lb-empty">No scores yet. Be the first to play!</div></div>
+  <div style="text-align:center;padding:10px 20px 30px;">
+    <div style="font-size:11px;color:rgba(255,255,255,0.2);margin-bottom:16px;">Powered by <strong style="color:rgba(229,57,53,0.4);">Web with Saurabh</strong></div>
+    <div id="adminTrigger" style="font-size:28px;cursor:pointer;user-select:none;" onclick="handleAdminTap()">🫙</div>
+    <div id="adminTapHint" style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px;opacity:0;transition:opacity 0.3s;"></div>
+  </div>
+</div>
+
+<!-- ══ OVERLAYS ══ -->
+
+<!-- Username -->
+<div class="overlay hidden" id="usernameOverlay">
+  <div class="modal">
+    <div style="font-size:40px;margin-bottom:10px;">🎮</div>
+    <h2>Enter Your Name</h2>
+    <p>Your name will appear on the leaderboard. Keep it clean and fun!</p>
+    <input type="text" id="usernameInput" placeholder="Your name..." maxlength="18" autocomplete="off">
+    <div id="usernameError" style="color:#ff4d4f;font-size:13px;margin:-8px 0 12px;display:none;"></div>
+    <button class="modal-btn" onclick="submitUsername()">Let's Play! 🚀</button>
+    <button class="modal-btn secondary" onclick="closeOverlay('usernameOverlay')">Cancel</button>
+  </div>
+</div>
+
+<!-- Win -->
+<div class="overlay hidden" id="winOverlay">
+  <div class="win-modal">
+    <div style="font-size:52px;margin-bottom:10px;">🏆</div>
+    <h2>You Won!</h2>
+    <p>Amazing! You hit 500 points. You've earned a <strong style="color:#f5c800;">FREE Dabeli!</strong></p>
+    <div style="background:rgba(229,57,53,0.12);border:1px solid rgba(229,57,53,0.35);border-radius:14px;padding:18px;margin-bottom:20px;">
+      <div style="font-size:30px;font-weight:800;color:#e53935;line-height:1;">FREE DABELI 🫓</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:6px;">with your order today</div>
+    </div>
+    <button class="modal-btn" onclick="claimOffer()">🎁 Claim My Offer</button>
+    <button class="modal-btn secondary" onclick="closeOverlay('winOverlay');startGame()">Play Again</button>
+  </div>
+</div>
+
+<!-- Voucher -->
+<div class="overlay hidden" id="voucherOverlay">
+  <div class="win-modal">
+    <div style="font-size:44px;margin-bottom:10px;">🎉</div>
+    <h2 style="margin-bottom:4px;">Congratulations!</h2>
+    <p style="margin-bottom:18px;">Show this screen at the counter to redeem your free Dabeli.</p>
+    <div class="voucher-card">
+      <div class="voucher-brand">RED गोलगप्पा अड्डा — Discount Voucher</div>
+      <div class="voucher-pct">FREE</div>
+      <div class="voucher-off">Dabeli 🫓</div>
+      <div class="voucher-code-wrap">
+        <div class="voucher-code-label">Voucher Code</div>
+        <div id="voucherCode" class="voucher-code"></div>
+      </div>
+      <div class="voucher-footer">
+        <span>Player: <strong id="voucherName"></strong></span>
+        <span id="voucherDate" style="font-weight:600;color:#333;"></span>
+      </div>
+      <div class="voucher-validity">Valid today only · One time use</div>
+      <div class="voucher-disclaimer">📋 Screenshots are not valid. Only live on-screen display accepted at counter.</div>
+    </div>
+    <button class="modal-btn secondary" style="margin-top:16px;" onclick="closeOverlay('voucherOverlay');showPage('home')">Done</button>
+  </div>
+</div>
+
+<!-- Already Claimed -->
+<div class="overlay hidden" id="alreadyClaimedOverlay">
+  <div class="modal">
+    <div style="font-size:40px;margin-bottom:10px;">🎟️</div>
+    <h2>Already Claimed!</h2>
+    <p>You've already claimed your voucher today. Show this code at the counter.</p>
+    <div style="background:#111;border:1px solid rgba(229,57,53,0.3);border-radius:10px;padding:12px;font-size:22px;font-weight:700;letter-spacing:3px;color:#e53935;margin-bottom:16px;" id="alreadyClaimedCode"></div>
+    <p style="font-size:12px;color:rgba(255,255,255,0.3);margin-bottom:16px;">One voucher per person per day.</p>
+    <button class="modal-btn secondary" onclick="closeOverlay('alreadyClaimedOverlay')">Got it</button>
+  </div>
+</div>
+
+<!-- Game Over -->
+<div class="overlay hidden" id="gameOverOverlay">
+  <div class="win-modal" style="border-color:rgba(255,77,79,0.4);">
+    <div style="font-size:56px;margin-bottom:10px;">💀</div>
+    <h2 style="color:#ff4d4f;">Game Over!</h2>
+    <p style="margin-bottom:10px;">Better luck next time! Keep playing to win a <strong style="color:#f5c800;">FREE Dabeli!</strong></p>
+    <div style="background:rgba(255,77,79,0.1);border:1px solid rgba(255,77,79,0.3);border-radius:14px;padding:16px;margin-bottom:22px;">
+      <div style="font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:4px;">Your Score</div>
+      <div id="gameOverScore" style="font-size:44px;font-weight:900;color:#ff4d4f;line-height:1;">0</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:4px;">Goal: 500 pts</div>
+    </div>
+    <button class="modal-btn" onclick="closeOverlay('gameOverOverlay');startGame()">🔄 Try Again</button>
+    <button class="modal-btn secondary" onclick="closeOverlay('gameOverOverlay');showPage('home')">🏠 Back to Home</button>
+  </div>
+</div>
+
+<!-- Admin Password -->
+<div class="overlay hidden" id="adminPassOverlay">
+  <div class="modal">
+    <div style="font-size:36px;margin-bottom:10px;">🔒</div>
+    <h2>Admin Access</h2>
+    <p>Enter the admin password to continue.</p>
+    <input type="password" id="adminPassInput" placeholder="Password..." autocomplete="off">
+    <div id="adminPassError" style="color:#ff4d4f;font-size:13px;margin:-8px 0 12px;display:none;">Wrong password.</div>
+    <button class="modal-btn" onclick="checkAdminPass()">Enter</button>
+    <button class="modal-btn secondary" onclick="closeOverlay('adminPassOverlay')">Cancel</button>
+  </div>
+</div>
+
+<!-- Admin Panel -->
+<div class="overlay hidden" id="adminOverlay">
+  <div class="modal" style="max-height:88vh;overflow-y:auto;">
+    <h2>🔐 Admin Panel</h2>
+    <p>Manage leaderboard &amp; game settings</p>
+    <div id="adminContent"></div>
+    <button class="modal-btn secondary" style="margin-top:14px;" onclick="closeOverlay('adminOverlay')">Close</button>
+  </div>
+</div>
+
+<script>
+// ─── SAFE TEXT HELPER ───
+function esc(str) {
+  return String(str)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
+}
+
+// ─── TICKER ───
+(function(){
+  const items = [
+    '🫙 Golgappa / Pani Puri ₹30 onwards',
+    '🫓 Dabeli Special ₹40',
+    '🥘 Ragda Patties ₹50 — New Arrival!',
+    '🎮 Score 500 pts → WIN Free Dabeli!',
+    '🍛 Pav Bhaji from ₹60',
+    '🏆 Play Golgappa Guard Now!',
+    '🌶️ Khatta · Meetha · Teekha — Your choice!',
+  ];
+  const all = [...items, ...items];
+  const html = all.map(t => `<span class="ticker-item">${esc(t)}<span class="ticker-dot"></span></span>`).join('');
+  document.getElementById('tickerInner').innerHTML = html;
+})();
+
+// ─── PAGE ROUTING ───
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  window.scrollTo(0, 0);
+  if (name !== 'game') {
+    running = false;
+    cancelAnimationFrame(frameId);
+    clearInterval(spawnInterval);
+    clearInterval(diffInterval);
+  }
+  if (name === 'leaderboard') renderLeaderboard();
+  if (name === 'game') setTimeout(() => { resize(); startGame(); }, 50);
+}
+
+// ─── BAD WORDS FILTER ───
+const BAD_WORDS = ['fuck','shit','ass','bastard','bitch','dick','chutiya','madarchod','bhosdi','gaand','harami','randi','saala','mc','bc','lund','gandu'];
+function isBadName(n) {
+  const s = n.toLowerCase().replace(/\s/g,'');
+  return BAD_WORDS.some(w => s.includes(w));
+}
+
+// ─── STORAGE HELPERS ───
+function getLeaderboard() { try { return JSON.parse(localStorage.getItem('rga_lb') || '[]'); } catch { return []; } }
+function saveLeaderboard(lb) { localStorage.setItem('rga_lb', JSON.stringify(lb)); }
+function getFlagged() { try { return JSON.parse(localStorage.getItem('rga_flagged') || '[]'); } catch { return []; } }
+function saveFlagged(f) { localStorage.setItem('rga_flagged', JSON.stringify(f)); }
+
+// ─── DIFFICULTY SETTINGS ───
+const DIFF_DEFAULTS = { spawnRate: 1400, birdSpeed: 2.15 };
+function getDiffSettings() {
+  try { return JSON.parse(localStorage.getItem('rga_diff') || 'null') || {...DIFF_DEFAULTS}; }
+  catch { return {...DIFF_DEFAULTS}; }
+}
+function saveDiffSettings(s) { localStorage.setItem('rga_diff', JSON.stringify(s)); }
+
+let currentUser = localStorage.getItem('rga_username') || null;
+
+// ─── USERNAME FLOW ───
+function askUsername() {
+  if (currentUser) { showPage('game'); return; }
+  document.getElementById('usernameInput').value = '';
+  document.getElementById('usernameError').style.display = 'none';
+  document.getElementById('usernameOverlay').classList.remove('hidden');
+  setTimeout(() => document.getElementById('usernameInput').focus(), 100);
+}
+
+function submitUsername() {
+  const val = document.getElementById('usernameInput').value.trim();
+  const errEl = document.getElementById('usernameError');
+  if (!val || val.length < 2) {
+    errEl.textContent = 'Name must be at least 2 characters.';
+    errEl.style.display = 'block'; return;
+  }
+  if (isBadName(val)) {
+    const flagged = getFlagged();
+    flagged.push({ name: val, time: new Date().toLocaleString() });
+    saveFlagged(flagged);
+    errEl.textContent = 'Please choose a different name.';
+    errEl.style.display = 'block'; return;
+  }
+  currentUser = val;
+  localStorage.setItem('rga_username', val);
+  closeOverlay('usernameOverlay');
+  showPage('game');
+}
+
+function closeOverlay(id) { document.getElementById(id).classList.add('hidden'); }
+
+// ─── LEADERBOARD RENDER ───
+function renderLeaderboard() {
+  const lb = getLeaderboard().sort((a,b) => b.score - a.score).slice(0, 10);
+  const el = document.getElementById('lbList');
+  if (!lb.length) {
+    el.innerHTML = '<div class="lb-empty">No scores yet. Be the first to play!</div>';
+    return;
+  }
+  const medals = ['🥇','🥈','🥉'];
+  el.innerHTML = lb.map((e, i) => {
+    const isYou = e.name === currentUser;
+    const badge = isYou ? `<span class="lb-badge">You</span>` : '';
+    return `<div class="lb-row">
+      <div class="lb-rank">${medals[i] || (i + 1)}</div>
+      <div class="lb-name">${esc(e.name)}${badge}</div>
+      <div class="lb-score">${esc(String(e.score))} pts</div>
+    </div>`;
+  }).join('');
+}
+
+function saveScore(name, score) {
+  const lb = getLeaderboard();
+  const ex = lb.find(e => e.name === name);
+  if (ex) { if (score > ex.score) ex.score = score; }
+  else lb.push({ name, score });
+  saveLeaderboard(lb);
+}
+
+// ─── ADMIN TAP ───
+let adminTapCount = 0, adminTapTimer = null;
+function handleAdminTap() {
+  adminTapCount++;
+  clearTimeout(adminTapTimer);
+  const hint = document.getElementById('adminTapHint');
+  hint.style.opacity = '1';
+  hint.textContent = adminTapCount === 1 ? 'Tap 2 more times...' : adminTapCount === 2 ? 'One more...' : '';
+  adminTapTimer = setTimeout(() => { adminTapCount = 0; hint.style.opacity = '0'; }, 1500);
+  if (adminTapCount >= 3) {
+    adminTapCount = 0; hint.style.opacity = '0';
+    document.getElementById('adminPassOverlay').classList.remove('hidden');
+    document.getElementById('adminPassInput').value = '';
+    document.getElementById('adminPassError').style.display = 'none';
+  }
+}
+
+function checkAdminPass() {
+  if (document.getElementById('adminPassInput').value === '7788') {
+    closeOverlay('adminPassOverlay'); openAdmin();
+  } else {
+    document.getElementById('adminPassError').style.display = 'block';
+  }
+}
+
+function openAdmin() {
+  const lb = getLeaderboard().sort((a,b) => b.score - a.score);
+  const flagged = getFlagged();
+  const ds = getDiffSettings();
+  const spawnPct = Math.round(((2000 - ds.spawnRate) / (2000 - 600)) * 100);
+  const speedPct = Math.round(((ds.birdSpeed - 1.2) / (4.5 - 1.2)) * 100);
+  let html = '<div style="text-align:left;">';
+  html += `<div class="diff-section">
+    <h4>🎮 Game Difficulty</h4>
+    <div class="diff-row">
+      <div class="diff-label">Spawn Speed (birds/sec) <span id="spawnLabel">${esc(String(spawnPct))}%</span></div>
+      <input class="diff-slider" type="range" min="0" max="100" value="${esc(String(spawnPct))}" oninput="onSliderChange('spawn', this.value)" id="spawnSlider">
+    </div>
+    <div class="diff-row">
+      <div class="diff-label">Bird Speed <span id="speedLabel">${esc(String(speedPct))}%</span></div>
+      <input class="diff-slider" type="range" min="0" max="100" value="${esc(String(speedPct))}" oninput="onSliderChange('speed', this.value)" id="speedSlider">
+    </div>
+    <div class="diff-preset-row">
+      <button class="diff-preset" onclick="applyPreset('easy')">😊 Easy</button>
+      <button class="diff-preset" onclick="applyPreset('medium')">😐 Medium</button>
+      <button class="diff-preset" onclick="applyPreset('hard')">😤 Hard</button>
+      <button class="diff-preset" onclick="applyPreset('insane')">💀 Insane</button>
+    </div>
+  </div>`;
+  html += `<div style="background:#0d1a2e;border:1px solid #1d4ed8;border-radius:10px;padding:12px 14px;margin-bottom:16px;">
+    <div style="font-size:13px;font-weight:600;color:#60a5fa;margin-bottom:8px;">🧪 Test Tools</div>
+    <button class="modal-btn" style="background:#0d0000;color:#e53935;padding:10px;" onclick="closeOverlay('adminOverlay');showWin()">▶ Test Win Screen</button>
+  </div>`;
+  html += `<h4 style="font-size:14px;margin-bottom:10px;color:#f0f0f0;">All Players (${esc(String(lb.length))})</h4>`;
+  if (!lb.length) html += '<p style="color:rgba(255,255,255,0.3);font-size:13px;">No entries yet.</p>';
+  lb.forEach(e => {
+    html += `<div class="admin-row">
+      <div><div class="uname">${esc(e.name)}</div><div class="uscore">${esc(String(e.score))} pts</div></div>
+      <button class="admin-remove" onclick="adminRemove(${JSON.stringify(e.name)})">Remove</button>
+    </div>`;
+  });
+  if (flagged.length) {
+    html += `<div class="flagged-section"><h4>⚠️ Flagged Names (${esc(String(flagged.length))})</h4>`;
+    flagged.forEach(f => {
+      html += `<div style="font-size:13px;padding:4px 0;color:#e53935;">${esc(f.name)} <span style="color:rgba(255,255,255,0.3);font-size:11px;">— ${esc(f.time)}</span></div>`;
+    });
+    html += `<button class="modal-btn danger" style="margin-top:10px;padding:8px;" onclick="clearFlagged()">Clear Flagged List</button></div>`;
+  }
+  html += '</div>';
+  document.getElementById('adminContent').innerHTML = html;
+  document.getElementById('adminOverlay').classList.remove('hidden');
+}
+
+function onSliderChange(type, val) {
+  const v = parseInt(val);
+  const ds = getDiffSettings();
+  if (type === 'spawn') {
+    ds.spawnRate = Math.round(2000 - (v / 100) * (2000 - 600));
+    const el = document.getElementById('spawnLabel');
+    if (el) el.textContent = v + '%';
+  } else {
+    ds.birdSpeed = parseFloat((1.2 + (v / 100) * (4.5 - 1.2)).toFixed(2));
+    const el = document.getElementById('speedLabel');
+    if (el) el.textContent = v + '%';
+  }
+  saveDiffSettings(ds);
+}
+
+function applyPreset(preset) {
+  const presets = {
+    easy:   { spawnRate: 1900, birdSpeed: 1.5 },
+    medium: { spawnRate: 1400, birdSpeed: 2.15 },
+    hard:   { spawnRate: 900,  birdSpeed: 3.0 },
+    insane: { spawnRate: 620,  birdSpeed: 4.2 },
+  };
+  saveDiffSettings(presets[preset]);
+  openAdmin();
+}
+
+function adminRemove(name) {
+  if (!confirm('Remove "' + name + '" from leaderboard?')) return;
+  saveLeaderboard(getLeaderboard().filter(e => e.name !== name));
+  openAdmin();
+}
+function clearFlagged() { saveFlagged([]); openAdmin(); }
+
+// ─── CLAIM / VOUCHER ───
+function claimOffer() {
+  const claimKey = 'rga_claimed_' + currentUser;
+  const existing = localStorage.getItem(claimKey);
+  const today = new Date().toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric' });
+  if (existing) {
+    const data = JSON.parse(existing);
+    if (data.date === today) {
+      closeOverlay('winOverlay');
+      document.getElementById('alreadyClaimedCode').textContent = data.code;
+      document.getElementById('alreadyClaimedOverlay').classList.remove('hidden');
+      return;
+    }
+  }
+  const rand = Math.random().toString(36).substring(2, 6).toUpperCase();
+  const initials = currentUser.substring(0, 2).toUpperCase();
+  const dateShort = new Date().toLocaleDateString('en-IN',{ day:'2-digit', month:'2-digit' }).replace('/','');
+  const code = 'RGA' + dateShort + initials + rand;
+  localStorage.setItem(claimKey, JSON.stringify({ code, date: today }));
+  closeOverlay('winOverlay');
+  document.getElementById('voucherCode').textContent  = code;
+  document.getElementById('voucherName').textContent  = currentUser;
+  document.getElementById('voucherDate').textContent  = today;
+  document.getElementById('voucherOverlay').classList.remove('hidden');
+}
+
+function showWin() {
+  running = false;
+  clearInterval(spawnInterval); clearInterval(diffInterval); cancelAnimationFrame(frameId);
+  if (currentUser) saveScore(currentUser, score);
+  document.getElementById('winOverlay').classList.remove('hidden');
+}
+
+function showGameOver() {
+  running = false;
+  clearInterval(spawnInterval); clearInterval(diffInterval); cancelAnimationFrame(frameId);
+  if (currentUser) saveScore(currentUser, score);
+  document.getElementById('gameOverScore').textContent = score;
+  document.getElementById('gameOverOverlay').classList.remove('hidden');
+}
+
+// ════════════════════════════════
+//  GAME ENGINE
+// ════════════════════════════════
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+let W, H, cx, cy, R;
+
+function resize() {
+  const size = Math.min(window.innerWidth, window.innerHeight - 120);
+  canvas.width = W = size;
+  canvas.height = H = size;
+  cx = W / 2; cy = H / 2; R = size * 0.09;
+}
+
+let shieldAngle = 0, score = 0, lives = 3;
+let birds = [], particles = [], running = false;
+let spawnInterval, diffInterval, frameId;
+let spawnRate, birdSpeed, currentShieldArc;
+const SHIELD_ARC_MAX = Math.PI * 0.275, SHIELD_ARC_MIN = Math.PI * 0.07;
+
+canvas.addEventListener('mousemove', e => {
+  const r = canvas.getBoundingClientRect();
+  shieldAngle = Math.atan2(e.clientY - r.top - cy, e.clientX - r.left - cx);
+});
+canvas.addEventListener('touchmove', e => {
+  e.preventDefault();
+  const r = canvas.getBoundingClientRect(), t = e.touches[0];
+  shieldAngle = Math.atan2(t.clientY - r.top - cy, t.clientX - r.left - cx);
+}, { passive: false });
+
+function spawnBird() {
+  const angle = Math.random() * Math.PI * 2;
+  const dist = Math.max(W, H) * 0.62;
+  birds.push({
+    x: cx + Math.cos(angle) * dist,
+    y: cy + Math.sin(angle) * dist,
+    angle, speed: birdSpeed + Math.random() * 0.8,
+    size: W * 0.032, wobble: Math.random() * Math.PI * 2
+  });
+}
+
+function spawnParticles(x, y, color, count = 10) {
+  for (let i = 0; i < count; i++) {
+    const a = Math.random() * Math.PI * 2, spd = 2 + Math.random() * 4;
+    particles.push({ x, y, vx: Math.cos(a)*spd, vy: Math.sin(a)*spd, alpha:1, color, r:3+Math.random()*4 });
+  }
+}
+
+function updateLives() {
+  document.getElementById('lives').innerHTML = [0,1,2]
+    .map(i => `<span style="opacity:${i < lives ? 1 : 0.2}">❤️</span>`)
+    .join('');
+}
+
+function startGame() {
+  score = 0; lives = 3; birds = []; particles = [];
+  currentShieldArc = SHIELD_ARC_MAX;
+  const ds = getDiffSettings();
+  spawnRate = ds.spawnRate;
+  birdSpeed = ds.birdSpeed;
+  document.getElementById('scoreDisplay').textContent = 0;
+  document.getElementById('progressBar').style.width = '0%';
+  updateLives(); running = true;
+  clearInterval(spawnInterval); clearInterval(diffInterval);
+  spawnInterval = setInterval(() => { if (running) spawnBird(); }, spawnRate);
+  diffInterval = setInterval(() => {
+    if (!running) return;
+    birdSpeed += 0.2;
+    if (spawnRate > 600) {
+      spawnRate -= 120;
+      clearInterval(spawnInterval);
+      spawnInterval = setInterval(() => { if (running) spawnBird(); }, spawnRate);
+    }
+  }, 4500);
+  cancelAnimationFrame(frameId);
+  loop();
+}
+
+function drawPlate() {
+  ctx.save(); ctx.shadowColor = 'rgba(0,0,0,0.4)'; ctx.shadowBlur = 20;
+  ctx.beginPath(); ctx.arc(cx, cy, R*1.1, 0, Math.PI*2);
+  ctx.fillStyle = '#1a0000'; ctx.fill(); ctx.restore();
+  ctx.beginPath(); ctx.arc(cx, cy, R*1.05, 0, Math.PI*2);
+  ctx.fillStyle = '#0d0000'; ctx.fill();
+  ctx.strokeStyle = '#e53935'; ctx.lineWidth = 2; ctx.stroke();
+  ctx.beginPath(); ctx.arc(cx, cy, R*0.82, 0, Math.PI*2);
+  ctx.strokeStyle = 'rgba(229,57,53,0.3)'; ctx.lineWidth = 1; ctx.stroke();
+  ctx.font = `${R * 0.95}px serif`;
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText('🫙', cx, cy + 2);
+}
+
+function drawShield() {
+  const r = R * 1.72;
+  const start = shieldAngle - currentShieldArc / 2;
+  const end   = shieldAngle + currentShieldArc / 2;
+  ctx.save(); ctx.shadowColor = '#e53935'; ctx.shadowBlur = 18;
+  ctx.beginPath(); ctx.arc(cx, cy, r, start, end);
+  ctx.strokeStyle = '#e53935'; ctx.lineWidth = W * 0.028; ctx.lineCap = 'round'; ctx.stroke();
+  ctx.restore();
+  ctx.beginPath(); ctx.arc(cx, cy, r, start, end);
+  ctx.strokeStyle = '#fff'; ctx.lineWidth = W * 0.014; ctx.lineCap = 'round'; ctx.stroke();
+}
+
+function angleDiff(a, b) {
+  let d = a - b;
+  while (d >  Math.PI) d -= Math.PI * 2;
+  while (d < -Math.PI) d += Math.PI * 2;
+  return Math.abs(d);
+}
+
+function loop() {
+  if (!running) return;
+  frameId = requestAnimationFrame(loop);
+  ctx.clearRect(0, 0, W, H);
+  const bg = ctx.createRadialGradient(cx, cy, 0, cx, cy, W * 0.7);
+  bg.addColorStop(0, '#1a0000'); bg.addColorStop(1, '#080000');
+  ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
+  ctx.beginPath(); ctx.arc(cx, cy, R * 1.72, 0, Math.PI * 2);
+  ctx.strokeStyle = 'rgba(229,57,53,0.08)'; ctx.lineWidth = 1; ctx.stroke();
+  drawPlate(); drawShield();
+
+  const SR = R * 1.72;
+  for (let i = birds.length - 1; i >= 0; i--) {
+    const b = birds[i];
+    const dx = cx - b.x, dy = cy - b.y;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+    b.angle = Math.atan2(dy, dx);
+    b.x += Math.cos(b.angle) * b.speed;
+    b.y += Math.sin(b.angle) * b.speed;
+    b.wobble += 0.18;
+
+    if (dist < SR + b.size * 1.2 && dist > SR - b.size * 1.2) {
+      const ba = Math.atan2(b.y - cy, b.x - cx);
+      if (angleDiff(ba, shieldAngle) < currentShieldArc / 2) {
+        spawnParticles(b.x, b.y, '#e53935', 10);
+        birds.splice(i, 1);
+        score += 10;
+        document.getElementById('scoreDisplay').textContent = score;
+        document.getElementById('progressBar').style.width = Math.min(score / 5, 100) + '%';
+        currentShieldArc = SHIELD_ARC_MAX - (SHIELD_ARC_MAX - SHIELD_ARC_MIN) * Math.min(score / 500, 1);
+        if (score >= 500) { showWin(); return; }
+        continue;
+      }
+    }
+    if (dist < R + b.size) {
+      spawnParticles(b.x, b.y, '#ff4d4f', 14);
+      birds.splice(i, 1);
+      lives--;
+      updateLives();
+      if (lives <= 0) { showGameOver(); return; }
+      continue;
+    }
+    ctx.save();
+    ctx.translate(b.x, b.y);
+    ctx.rotate(b.angle + Math.PI + Math.sin(b.wobble) * 0.3);
+    ctx.font = `${b.size * 1.6}px serif`;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText('🐦', 0, 0);
+    ctx.restore();
+  }
+
+  for (let i = particles.length - 1; i >= 0; i--) {
+    const p = particles[i];
+    p.x += p.vx; p.y += p.vy;
+    p.alpha -= 0.045;
+    p.vx *= 0.92; p.vy *= 0.92;
+    if (p.alpha <= 0) { particles.splice(i, 1); continue; }
+    ctx.save();
+    ctx.globalAlpha = p.alpha;
+    ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+    ctx.fillStyle = p.color; ctx.fill();
+    ctx.restore();
+  }
+}
+
+window.addEventListener('resize', () => {
+  if (document.getElementById('page-game').classList.contains('active')) resize();
+});
+document.getElementById('usernameInput').addEventListener('keydown', e => { if (e.key === 'Enter') submitUsername(); });
+document.getElementById('adminPassInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkAdminPass(); });
+</script>
+</body>
+</html>
