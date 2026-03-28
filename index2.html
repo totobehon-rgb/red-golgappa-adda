@@ -17,8 +17,8 @@ body { font-family:'Segoe UI',sans-serif; background:#0d0200; color:#f0f0f0; min
 .nav-btn { background:rgba(230,48,18,0.12); border:1px solid rgba(230,48,18,0.4); color:#e63012; padding:7px 14px; border-radius:50px; font-size:13px; cursor:pointer; font-weight:600; transition:background 0.2s; }
 .nav-btn:hover { background:rgba(230,48,18,0.25); }
 
-/* PAGES */
-.page { display:none; }
+/* PAGES — FIX: position+z-index so they sit above #bgCanvas (z-index:0) */
+.page { display:none; position:relative; z-index:1; }
 .page.active { display:block; min-height:100vh; }
 
 /* BG CANVAS */
@@ -121,8 +121,8 @@ body { font-family:'Segoe UI',sans-serif; background:#0d0200; color:#f0f0f0; min
 .card-badge { position:absolute; top:10px; left:10px; background:#e63012; color:#fff; font-size:9px; font-weight:800; padding:3px 8px; border-radius:99px; letter-spacing:0.5px; text-transform:uppercase; }
 .card-badge.new { background:#f5c800; color:#111; }
 
-/* GAME PAGE */
-.game-page { background:#0d0000; min-height:100vh; display:none; flex-direction:column; align-items:center; }
+/* GAME PAGE — FIX: also flex + z-index */
+.game-page { background:#0d0000; min-height:100vh; display:none; flex-direction:column; align-items:center; position:relative; z-index:1; }
 .game-page.active { display:flex; }
 #ui { width:100%; display:flex; justify-content:space-between; padding:14px 20px; }
 .ui-box { background:rgba(230,48,18,0.08); border:1px solid rgba(230,48,18,0.2); border-radius:12px; padding:8px 16px; color:#fff; font-size:14px; font-weight:500; }
@@ -133,8 +133,6 @@ canvas { display:block; border-radius:16px; max-width:100%; }
 .progress-label { font-size:11px; color:rgba(255,255,255,0.4); text-align:center; margin-bottom:5px; }
 .progress-track { background:rgba(255,255,255,0.08); border-radius:99px; height:6px; overflow:hidden; }
 .progress-bar { height:100%; width:0%; background:#e63012; border-radius:99px; transition:width 0.3s; }
-.powered { color:rgba(255,255,255,0.2); font-size:11px; text-align:center; padding:14px 0 20px; }
-.powered span { color:rgba(230,48,18,0.5); font-weight:700; }
 
 /* LEADERBOARD */
 .lb-header { background:rgba(26,5,0,0.8); padding:20px; color:#fff; text-align:center; border-bottom:2px solid #e63012; }
@@ -255,9 +253,8 @@ button { font-family:inherit; }
     📍 <span>RED गोलगप्पा अड्डा</span> &nbsp;·&nbsp; 📞 <span>Visit us today!</span>
   </div>
 
-  <div style="text-align:center;padding:10px 20px 30px;">
+  <div style="text-align:center;padding:14px 20px 30px;">
     <button class="btn-primary" style="padding:14px 40px;" onclick="askUsername()">🎮 Play Food Guard &amp; Win Free Golgappa</button>
-    <div style="font-size:11px;color:rgba(255,255,255,0.2);margin-top:10px;">Powered by <a href="https://saurabhsharma1122.github.io/" target="_blank" style="color:rgba(230,48,18,0.6);font-weight:700;text-decoration:none;">Web with Saurabh</a></div>
   </div>
 </div>
 
@@ -274,7 +271,6 @@ button { font-family:inherit; }
     <div class="progress-label">Goal: 500 points</div>
     <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
   </div>
-  <div class="powered">Powered by <a href="https://saurabhsharma1122.github.io/" target="_blank" style="color:rgba(230,48,18,0.5);font-weight:700;text-decoration:none;">Web with Saurabh</a></div>
 </div>
 
 <!-- LEADERBOARD -->
@@ -285,7 +281,6 @@ button { font-family:inherit; }
   </div>
   <div class="lb-list" id="lbList"><div class="lb-empty">No scores yet. Be the first to play!</div></div>
   <div style="text-align:center;padding:10px 20px 30px;">
-    <div style="font-size:11px;color:rgba(255,255,255,0.2);margin-bottom:16px;">Powered by <a href="https://saurabhsharma1122.github.io/" target="_blank" style="color:rgba(230,48,18,0.6);font-weight:700;text-decoration:none;">Web with Saurabh</a></div>
     <div id="adminTrigger" style="font-size:28px;cursor:pointer;user-select:none;" onclick="handleAdminTap()">🫙</div>
     <div id="adminTapHint" style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px;opacity:0;transition:opacity 0.3s;"></div>
   </div>
@@ -589,9 +584,7 @@ function loop(){
 
 window.addEventListener('resize',()=>{ if(document.getElementById('page-game').classList.contains('active')) resize(); });
 
-// ════════════════════════════════
-//  BACKGROUND ANIMATION
-// ════════════════════════════════
+// BACKGROUND ANIMATION
 (function(){
   const bc = document.getElementById('bgCanvas');
   const bx = bc.getContext('2d');
@@ -601,7 +594,6 @@ window.addEventListener('resize',()=>{ if(document.getElementById('page-game').c
   resizeBg();
   window.addEventListener('resize', resizeBg);
 
-  // ── Orbs (slow lava-lamp blobs) ──
   const orbs = Array.from({length: 6}, (_, i) => ({
     x: Math.random() * window.innerWidth,
     y: Math.random() * window.innerHeight,
@@ -614,7 +606,6 @@ window.addEventListener('resize',()=>{ if(document.getElementById('page-game').c
     pulseSpeed: 0.005 + Math.random() * 0.008,
   }));
 
-  // ── Sparkle particles ──
   const sparks = Array.from({length: 90}, () => mkSpark());
   function mkSpark(){
     return {
@@ -633,7 +624,6 @@ window.addEventListener('resize',()=>{ if(document.getElementById('page-game').c
     };
   }
 
-  // ── Food emoji floaters ──
   const emojis = ['🫙','🌶️','✨','💥','🔥','🌟','🫙','🌶️'];
   const floaters = Array.from({length: 10}, () => mkFloater());
   function mkFloater(){
@@ -652,7 +642,6 @@ window.addEventListener('resize',()=>{ if(document.getElementById('page-game').c
     };
   }
 
-  // ── Aurora wave lines ──
   const auroraLines = Array.from({length: 5}, (_, i) => ({
     offset: i * 80 + 60,
     amplitude: 18 + i * 10,
@@ -669,12 +658,9 @@ window.addEventListener('resize',()=>{ if(document.getElementById('page-game').c
   function drawBg(){
     tick++;
     bx.clearRect(0, 0, BW, BH);
-
-    // Deep background fill
     bx.fillStyle = '#0d0200';
     bx.fillRect(0, 0, BW, BH);
 
-    // ── Aurora waves ──
     auroraLines.forEach(l => {
       l.phase += l.speed;
       bx.beginPath();
@@ -690,7 +676,6 @@ window.addEventListener('resize',()=>{ if(document.getElementById('page-game').c
       bx.globalAlpha = 1;
     });
 
-    // ── Glowing orbs ──
     orbs.forEach(o => {
       o.x += o.vx; o.y += o.vy;
       o.pulse += o.pulseSpeed;
@@ -709,7 +694,6 @@ window.addEventListener('resize',()=>{ if(document.getElementById('page-game').c
       bx.fill();
     });
 
-    // ── Sparkle particles ──
     sparks.forEach((s, i) => {
       s.life++;
       s.x += s.vx; s.y += s.vy;
@@ -735,7 +719,6 @@ window.addEventListener('resize',()=>{ if(document.getElementById('page-game').c
       bx.restore();
     });
 
-    // ── Emoji floaters ──
     floaters.forEach((f, i) => {
       f.life++;
       f.x += f.vx; f.y += f.vy;
@@ -760,7 +743,6 @@ window.addEventListener('resize',()=>{ if(document.getElementById('page-game').c
       bx.restore();
     });
 
-    // ── Subtle vignette ──
     const vig = bx.createRadialGradient(BW/2, BH/2, BH*0.2, BW/2, BH/2, BH*0.9);
     vig.addColorStop(0, 'rgba(0,0,0,0)');
     vig.addColorStop(1, 'rgba(0,0,0,0.55)');
@@ -774,5 +756,13 @@ window.addEventListener('resize',()=>{ if(document.getElementById('page-game').c
 document.getElementById('usernameInput').addEventListener('keydown',e=>{ if(e.key==='Enter') submitUsername(); });
 document.getElementById('adminPassInput').addEventListener('keydown',e=>{ if(e.key==='Enter') checkAdminPass(); });
 </script>
+
+<!-- FOOTER -->
+<div style="text-align:center;padding:14px 20px;background:rgba(13,2,0,0.9);border-top:1px solid rgba(230,48,18,0.15);position:relative;z-index:1;">
+  <a href="https://saurabhsharma1122.github.io/" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:rgba(255,255,255,0.35);text-decoration:none;letter-spacing:0.5px;transition:color 0.2s;" onmouseover="this.style.color='#e63012'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">
+    Powered by Web with Saurabh
+  </a>
+</div>
+
 </body>
 </html>
